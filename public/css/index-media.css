@@ -1,0 +1,45 @@
+/*
+    index-media.css
+
+    Containing responsive properties.
+*/
+
+@media all and (max-width: 1100px) {
+    #header-cloth {
+        width: 80%;
+        left: calc((100vw - 80%) / 2);
+    }
+
+    /* Changing three buttons position */
+    #header-container > div.flex-center,
+    #header-container > div.flex-center > button {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    #header-container > div.flex-center > button+button {
+        margin-left: 0;
+    }
+    #header-container > div.flex-center > button {
+        margin-top: 2em;
+    }
+    #header-container > div.flex-center > button:nth-child(1) {
+        -webkit-order: 2;
+        -ms-order: 2;
+        order: 2;
+    }
+    #header-container > div.flex-center > button:nth-child(2) {
+        -webkit-order: 1;
+        -ms-order: 1;
+        order: 1;
+    }
+    #header-container > div.flex-center > button:nth-child(3) {
+        -webkit-order: 3;
+        -ms-order: 3;
+        order: 3;
+    }
+}
