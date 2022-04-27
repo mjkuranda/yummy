@@ -29,6 +29,9 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.render('index');
 });
+app.get('/search', (req, res) => {
+    res.render('search');
+});
 app.get('/about', (req, res) => {
     const randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)]
     res.render('about', { fortune: randomFortune });

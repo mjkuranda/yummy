@@ -21,6 +21,9 @@
     --honey-yellow-alpha: #fdb83377;
     --spanish-blue-alpha: #296eb477;
     --blue-de-france-alpha: #1789fc77;
+
+    /* Constant variables */
+    --phi: 1.618;
 }
 
 

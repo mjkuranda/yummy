@@ -1,0 +1,94 @@
+/*
+    Main settings
+    Body and other
+*/
+body {
+    background-color: var(--orange-yellow-crayola);
+}
+
+.result-box {
+    --in-row: 2;
+    --spc: 8px;
+    --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
+
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100vw - (var(--ratio) * var(--in-row)));
+    margin: var(--spc) auto;
+}
+/*
+    Margin between left and right element
+    2n*1 -> the first one in two elements line
+*/
+.result-container:not(:nth-child(2n+1)) {
+    margin-left: var(--spc);
+}
+/*
+    Margin above elements, but starting with 3rd one (n+3)
+    n+4 means line with 3 elements
+*/
+.result-container:nth-child(n+3) {
+    margin-top: var(--spc);
+}
+
+/*
+    Result found and defined by your query
+    inside search bar.
+
+    result-container
+        result-image
+        result-label
+            result-description
+            result-button
+*/
+.result-container {
+    --w: calc(var(--ratio) * var(--phi));
+    --h: calc(var(--w) / var(--phi));
+
+    width: var(--w);
+    height: var(--h);
+    background-color: var(--honey-yellow);
+    /* box-shadow: 0 0 2px 2px; */
+}
+.result-image {
+    width: var(--h);
+    height: var(--h);
+    background-color: black; 
+}
+.result-image > img {
+    width: var(--h);
+    height: var(--h);
+    object-fit: cover;
+}
+.result-description {  
+    --hd: calc(var(--h) / var(--phi));
+    width: var(--hd);
+    height: var(--hd);
+    background-color: var(--cooper);
+}
+.result-button {
+    --wb: calc(var(--w) - var(--h));
+    --hb: calc(var(--h) / var(--phi)); /* hb = h - hd */
+
+    width: var(--wb);
+    height: calc(var(--h) - var(--hb));
+}
+
+.result-title {
+    --htt: calc(var(--hd) - (var(--hd) / var(--phi)));
+
+    width: var(--hd);
+    height: var(--htt);
+    font-size: 1;
+    font-weight: 700;
+    padding: calc(var(--spc) / 2);
+}
+.result-text {
+    --htx: calc(var(--hd) / var(--phi));
+
+    width: var(--hd);
+    height: var(--htx);
+    font-size: calc(1em / var(--phi));
+    font-weight: 700;
+    padding: calc(var(--spc) / 2);
+}
