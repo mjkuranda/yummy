@@ -4,31 +4,139 @@
 */
 body {
     background-color: var(--orange-yellow-crayola);
+
+    /* Header & section.filter */
+    --mh: 160px;
+    --wh: calc(100vw - (2 * var(--mh)));
+    --hh: 6em;
 }
 
-.result-box {
-    --in-row: 2;
-    --spc: 8px;
-    --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
+header {
+    /* Header left */
+    --hl: calc(var(--wh) / var(--phi));
+    /* Header right */
+    --hr: calc(var(--wh) - var(--hl));
 
+    background-color: var(--cooper);
+    height: var(--hh);
+}
+header > div {
+    margin: 0 var(--mh);
+}
+header > div > div {
+    width: var(--hl);
+    height: var(--hh);
+    background-color: transparent;
+}
+#logo {
+    margin: 0 1em;
+}
+header > div > nav {
+    width: var(--hr);
+    height: var(--hh);
+    background-color: transparent;
+}
+header > div > nav > a+a {
+    margin-left: 1em;
+}
+
+
+
+#filters {
+    width: var(--wh);
+    height: 300px;
+    margin: 0 var(--mh);
+    background-color: var(--honey-yellow);
+}
+#filters > div {
+    flex: 1;
+    height: 100%;
+    padding: 1em;
+}
+#filters > div > h2 {}
+#filters > div > ul {
+    padding: 1em;
+    list-style: none;
+}
+#filters > div > ul > li {
     display: flex;
-    flex-wrap: wrap;
-    width: calc(100vw - (var(--ratio) * var(--in-row)));
-    margin: var(--spc) auto;
+    align-items: center;
 }
-/*
-    Margin between left and right element
-    2n*1 -> the first one in two elements line
-*/
-.result-container:not(:nth-child(2n+1)) {
-    margin-left: var(--spc);
+#filters > div > ul > li+li {
+    padding-top: .5em;
 }
-/*
-    Margin above elements, but starting with 3rd one (n+3)
-    n+4 means line with 3 elements
-*/
-.result-container:nth-child(n+3) {
-    margin-top: var(--spc);
+#filters > div > ul > li > input[type=checkbox]+label {
+    margin-left: .5em;
+}
+
+
+
+/* Below 1000px */
+@media all and (max-width: 700px) {
+    .result-box {
+        --in-row: 1;
+        --spc: 8px;
+        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
+    
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100vw - (var(--ratio) * var(--in-row)));
+        margin: var(--spc) auto;
+    }
+    /*
+        Margin above elements, but starting with 3rd one (n+3)
+        n+4 means line with 3 elements
+    */
+    .result-container:nth-child(n+1) {
+        margin-top: var(--spc);
+    }
+}
+/* 700px-1400px */
+@media all and (min-width: 700px) and (max-width: 1400px) {
+    .result-box {
+        --in-row: 2;
+        --spc: 8px;
+        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
+    
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100vw - (var(--ratio) * var(--in-row)));
+        margin: var(--spc) auto;
+    }
+
+    /*
+        Margin between left and right element
+        2n*1 -> the first one in two elements line
+    */
+    .result-container:not(:nth-child(2n+1)) {
+        margin-left: var(--spc);
+    }
+    /*
+        Margin above elements, but starting with 3rd one (n+3)
+        n+4 means line with 3 elements
+    */
+    .result-container:nth-child(n+3) {
+        margin-top: var(--spc);
+    }
+}
+/* Upper than 1400px */
+@media all and (min-width: 1400px) {
+    .result-box {
+        --in-row: 3;
+        --spc: 8px;
+        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
+    
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100vw - (var(--ratio) * var(--in-row)));
+        margin: var(--spc) auto;
+    }
+    .result-container:not(:nth-child(3n+1)) {
+        margin-left: var(--spc);
+    }
+    .result-container:nth-child(n+4) {
+        margin-top: var(--spc);
+    }
 }
 
 /*
@@ -49,6 +157,16 @@ body {
     height: var(--h);
     background-color: var(--honey-yellow);
     /* box-shadow: 0 0 2px 2px; */
+
+    transform: scale(1);
+    transition: 618ms;
+}
+.result-container:hover {
+    box-shadow: 0 0 var(--spc) var(--spc) var(--orange-yellow-crayola);
+
+    transform: scale(var(--phi));
+    transition: 618ms;
+    z-index: 2;
 }
 .result-image {
     width: var(--h);
@@ -80,7 +198,7 @@ body {
     width: var(--hd);
     height: var(--htt);
     font-size: 1;
-    font-weight: 700;
+    /* font-weight: 700; */
     padding: calc(var(--spc) / 2);
 }
 .result-text {
@@ -89,6 +207,6 @@ body {
     width: var(--hd);
     height: var(--htx);
     font-size: calc(1em / var(--phi));
-    font-weight: 700;
+    /* font-weight: 700; */
     padding: calc(var(--spc) / 2);
 }

@@ -107,7 +107,7 @@ header > div > div {
 #categories .cloth {
     width: 70%;
     height: 100%;
-    background-color: var(--cooper-alpha);
+    /* background-color: var(--cooper-alpha); */
     margin: 0 auto;
 }
 .category-container {
@@ -120,24 +120,4 @@ header > div > div {
 }
 .category-container > p {
     margin-bottom: 1em;
-}
-
-
-
-
-
-
-/*
-    footer.css
-
-    Contains footer part
-*/
-
-footer {
-    background-color: var(--cooper);
-}
-
-footer > div {
-    padding: 2rem 0;
-    text-align: center;
 }
