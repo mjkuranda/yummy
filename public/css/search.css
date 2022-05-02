@@ -4,40 +4,6 @@
 */
 body {
     background-color: var(--orange-yellow-crayola);
-
-    /* Header & section.filter */
-    --mh: 160px;
-    --wh: calc(100vw - (2 * var(--mh)));
-    --hh: 6em;
-}
-
-header {
-    /* Header left */
-    --hl: calc(var(--wh) / var(--phi));
-    /* Header right */
-    --hr: calc(var(--wh) - var(--hl));
-
-    background-color: var(--cooper);
-    height: var(--hh);
-}
-header > div {
-    margin: 0 var(--mh);
-}
-header > div > div {
-    width: var(--hl);
-    height: var(--hh);
-    background-color: transparent;
-}
-#logo {
-    margin: 0 1em;
-}
-header > div > nav {
-    width: var(--hr);
-    height: var(--hh);
-    background-color: transparent;
-}
-header > div > nav > a+a {
-    margin-left: 1em;
 }
 
 

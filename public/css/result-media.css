@@ -1,0 +1,19 @@
+@media all and (max-width: 700px) {
+    .result-container {
+        display: grid;
+        grid-template-rows: 33% auto auto;
+        grid-template-columns: 100%;
+        aspect-ratio: 1 / 1;
+
+        width: auto;
+        margin: 0;
+        justify-items: unset;
+        align-items: unset;
+    }
+    .result-ingredients {
+        grid-area: unset !important;
+    }
+    .result-image > img {
+        height: 100%;
+    }
+}

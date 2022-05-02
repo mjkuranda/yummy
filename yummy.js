@@ -32,6 +32,9 @@ app.get('/', (req, res) => {
 app.get('/search', (req, res) => {
     res.render('search');
 });
+app.get('/result', (req, res) => {
+    res.render('result');
+});
 app.get('/about', (req, res) => {
     const randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)]
     res.render('about', { fortune: randomFortune });

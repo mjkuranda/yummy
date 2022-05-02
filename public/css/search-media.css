@@ -20,15 +20,3 @@
         height: auto;
     }
 }
-
-@media all and (max-width: 900px) {
-    header {
-        height: auto;
-    }
-    header > div {
-        display: block !important;
-    }
-    header > div > .flex-left {
-        width: auto !important;
-    }
-}
