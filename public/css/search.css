@@ -13,13 +13,13 @@ body {
     height: 300px;
     margin: 0 var(--mh);
     background-color: var(--honey-yellow);
+    border-radius: 0 0 1em 1em;
 }
 #filters > div {
     flex: 1;
     height: 100%;
     padding: 1em;
 }
-#filters > div > h2 {}
 #filters > div > ul {
     padding: 1em;
     list-style: none;
@@ -137,7 +137,6 @@ body {
 .result-image {
     width: var(--h);
     height: var(--h);
-    background-color: black; 
 }
 .result-image > img {
     width: var(--h);

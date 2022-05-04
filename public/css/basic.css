@@ -68,6 +68,22 @@ button:hover {
 
 
 
+a {
+    /* cursor: alias; */
+    cursor: pointer;
+    transition: .5s;
+    color: #0000ee;
+}
+a:hover {
+    text-shadow: 0px 0px 2px;
+    transition: .5s;
+}
+a:visited {
+    color: #0000ee;
+}
+
+
+
 input[type="checkbox"] {
     width: calc(1em * var(--phi));
     aspect-ratio: 1 / 1;

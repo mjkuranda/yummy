@@ -4,16 +4,36 @@
         grid-template-rows: 33% auto auto;
         grid-template-columns: 100%;
         aspect-ratio: 1 / 1;
-
-        width: auto;
-        margin: 0;
-        justify-items: unset;
-        align-items: unset;
+    }
+    .result-details > div > p {
+        height: 12em;
     }
     .result-ingredients {
         grid-area: unset !important;
     }
     .result-image > img {
         height: 100%;
+    }
+}
+
+/* Result description media */
+@media all and (min-width: 700px) and (max-width: 900px) {
+    .result-details > div > p {
+        height: 11em;
+    }
+}
+@media all and (min-width: 900px) and (max-width: 1000px) {
+    .result-details > div > p {
+        height: 17em;
+    }
+}
+@media all and (min-width: 1000px) and (max-width: 1100px) {
+    .result-details > div > p {
+        height: 22em;
+    }
+}
+@media all and (min-width: 1100px) {
+    .result-details > div > p {
+        height: 24em;
     }
 }

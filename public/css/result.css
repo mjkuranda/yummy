@@ -3,19 +3,24 @@ main {
     padding: 8px;
 }
 .result-nav {
-    margin: 1em 0 4em 0;
+    background-color: var(--honey-yellow);
+    padding: 1em;
+    margin-bottom: 0.5em;
+    border-radius: .5em;
+}
+.result-nav > a > i {
+    margin-right: .5em;
 }
 
 .result-container {
     display: grid;
-    grid-template-rows: 50% auto;
     grid-template-columns: 50% 50%;
-    aspect-ratio: 1 / 1;
 }
 .result-image > img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: .5em;
 }
 .result-details {
     margin: 2em;
@@ -25,22 +30,26 @@ main {
 }
 .result-details > ul > li:first-child {
     margin-bottom: 1em;
+    text-shadow: 1px 1px 2px;
 }
 .result-details > div {
     margin-top: 1em;
 }
 .result-details > div > p {
     overflow-y: scroll;
-    height: 12em
+    height: 24em;
 }
 
 .result-ingredients {
     grid-area: 2 / 1 / span 1 / span 2;
     padding: 2em;
-    margin: auto 0;
+    margin-top: 0.2em;
+    background-color: var(--honey-yellow);
+    border-radius: 0.5em;
 }
 .result-ingredients > h3 {
     margin-bottom: 2em;
+    text-shadow: 1px 1px 2px;
 }
 .result-ingredients > ul {
     list-style: none;
@@ -52,4 +61,5 @@ main {
 }
 .result-ingredients > ul > li > span {
     margin-left: .618em;
+    cursor: default;
 }
