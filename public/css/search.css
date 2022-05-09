@@ -9,8 +9,8 @@ body {
 
 
 #filters {
+    display: flex;
     width: var(--wh);
-    height: 300px;
     margin: 0 var(--mh);
     background-color: var(--honey-yellow);
     border-radius: 0 0 1em 1em;
@@ -20,18 +20,28 @@ body {
     height: 100%;
     padding: 1em;
 }
-#filters > div > ul {
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.category-container > div {
+    padding: 1em;
+}
+#filters > div .category {
+    margin-top: 1em;
+}
+#filters div ul {
     padding: 1em;
     list-style: none;
 }
-#filters > div > ul > li {
+#filters div ul > li {
     display: flex;
     align-items: center;
 }
-#filters > div > ul > li+li {
+#filters div ul > li+li {
     padding-top: .5em;
 }
-#filters > div > ul > li > input[type=checkbox]+label {
+#filters div ul > li > input[type=checkbox]+label {
     margin-left: .5em;
 }
 

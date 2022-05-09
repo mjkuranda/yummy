@@ -26,6 +26,9 @@ header > div > div {
         2px 2px 2px grey,
         -3px 6px 5px var(--blue-de-france);
     color: var(--honey-yellow);
+    padding: 1em 2em;
+    border-radius: 1em;
+    background-color: var(--blue-de-france-alpha);
 }
 #header-container > div {
     margin: 80px 0;
@@ -42,7 +45,7 @@ header > div > div {
     top: 0;
     left: calc((100vw - 1100px) / 2);
     height: 100vh;
-    background-color: var(--blue-de-france);
+    /* background-color: var(--blue-de-france); */
     opacity: .5;
     z-index: 1;
 }
@@ -63,6 +66,7 @@ header > div > div {
     background: linear-gradient(to bottom right,
         var(--blue-de-france) 0%,
         var(--spanish-blue) 50%);
+    font-size: 1.2em;
 }
 
 #description > section+section {
