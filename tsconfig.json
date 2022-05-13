@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./out",
+        "target": "esnext", //ES2015
+        "module": "commonjs"
+    }
+}

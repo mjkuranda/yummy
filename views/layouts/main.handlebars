@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>Yummy</title>
@@ -6,14 +5,63 @@
         <meta name="author" content="Marek Kurańda" />
         <meta name="creation-date" content="2022-02-22" />
         <meta name="description" content="Najlepsze dania na dziś!" />
-   </head>
+
+        <link rel="shortcut icon" href="icons/yummy-64.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Sacramento"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+
+        <link rel="stylesheet" href="css/basic.css" />
+        {{#each elements.links}}
+            <link rel="stylesheet" href="css/{{this}}.css" />
+        {{/each}}
+
+        {{#each elements.scripts}}
+            <script defer src="out/{{this}}.js"></script>
+        {{/each}}
+    </head>
     <body>
-        {{!-- <p><a href="/">/</a></p>
-        <p><a href="/about">/about</a></p>
-        <p><a href="/home">/home</a></p>
-        <p><a href="/404">/404</a></p>
-        <p><a href="/500">/500</a></p> --}}
+        {{#if isNotMain}}
+            <header>
+                <div class="flex-center">
+                    <div class="flex-left">
+                        <div id="logo">LOGO</div>
+                        <h1>Yummy</h1>
+                    </div>
+                    <nav class="flex-left">
+                        <a href="/">Strona główna</a>
+                        <a href="/about">O stronie</a>
+                    </nav>
+                </div>
+            </header>
+        {{/if}}
 
         {{{body}}}
+
+        <footer>
+            <div>
+                <p>Wszelkie prawa zastrzeżone</p>
+                <br />
+                <h3>Marek Kurańda</h3>
+                <h4>Yummy &copy; 2022</h4>
+                <br />
+                <h5><a
+                        target="_blank"
+                        href="https://icons8.com/icon/RxvLC54xtSnZ/yummy"
+                    >Yummy</a>
+                    icon by
+                    <a target="_blank" href="https://icons8.com">Icons8</a></h5>
+            </div>
+        </footer>
     </body>
 </html>

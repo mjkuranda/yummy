@@ -1,33 +1,39 @@
 {
-  "name": "yummy",
-  "version": "1.0.0",
-  "description": "Website that will help you the best!",
-  "main": "yummy.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mjkuranda/yummy.git"
-  },
-  "keywords": [
-    "yummy",
-    "fine",
-    "meals",
-    "what",
-    "to",
-    "cook",
-    "today"
-  ],
-  "author": "Marek Kurańda",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mjkuranda/yummy/issues"
-  },
-  "homepage": "https://github.com/mjkuranda/yummy#readme",
-  "dependencies": {
-    "express": "^4.17.3",
-    "express-handlebars": "^6.0.2",
-    "nodemon": "^2.0.16"
-  }
+    "name": "yummy",
+    "version": "1.0.0",
+    "description": "Website that will help you the best!",
+    "main": "yummy.js",
+    "scripts": {
+        "compile": "tsc --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mjkuranda/yummy.git"
+    },
+    "keywords": [
+        "yummy",
+        "fine",
+        "meals",
+        "what",
+        "to",
+        "cook",
+        "today"
+    ],
+    "author": "Marek Kurańda",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mjkuranda/yummy/issues"
+    },
+    "homepage": "https://github.com/mjkuranda/yummy#readme",
+    "dependencies": {
+        "express": "^4.17.3",
+        "express-handlebars": "^6.0.2",
+        "nodemon": "^2.0.16",
+        "typescript": "^4.6.4"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.33",
+        "prettier": "2.6.2"
+    },
+    "type": "module"
 }
