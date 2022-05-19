@@ -2,36 +2,25 @@
     <div>
         <h2>Składniki</h2>
         <div class="category-container">
-            <div class="category">
-                <h3>Kategoria</h3>
-                <ul>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Kategoria</h3>
-                <ul>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Kategoria</h3>
-                <ul>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                </ul>
-            </div>
+            {{#each filter.categorized as |cat|}}
+                <div class="category">
+                    <h3>{{cat.category}}</h3>
+                    <ul>
+                        {{#each this.ingredients as |ing|}}
+                            <li>
+                                <input type="checkbox" />
+                                <img
+                                    class="icon"
+                                    src="{{ing.icon.src}}"
+                                    alt="'{{ing.icon.name}}' ingredient image"
+                                    author="{{ing.icon.link}}"
+                                />
+                                <label>{{ing.name}}</label>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/each}}
         </div>
     </div>
     <div>

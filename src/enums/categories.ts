@@ -1,8 +1,6 @@
 export enum Category {
-    MILKY = "produkty mleczne",
-    SPICES = "przyprawy",
-    VEGETABLES = "warzywa",
+    BERRIES = "owoce jagodowe",
     FRUITS = "owoce",
-    MEATS = "mięsa",
-    FISH = "ryby",
+    SEAFISH = "owoce morza",
+    VEGETABLES = "warzywa",
 }

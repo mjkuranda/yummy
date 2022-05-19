@@ -26,6 +26,7 @@
     },
     "homepage": "https://github.com/mjkuranda/yummy#readme",
     "dependencies": {
+        "@handlebars/allow-prototype-access": "^1.0.5",
         "express": "^4.17.3",
         "express-handlebars": "^6.0.2",
         "nodemon": "^2.0.16",

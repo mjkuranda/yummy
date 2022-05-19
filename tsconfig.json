@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
         "rootDir": "./src",
-        "outDir": "./out",
+        "outDir": "public/out",
         "target": "esnext", //ES2015
-        "module": "commonjs"
-    }
+        "module": "esnext"
+    },
+    "compileOnSave": true,
+    "buildOnSave": true
 }

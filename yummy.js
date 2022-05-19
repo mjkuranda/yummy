@@ -5,30 +5,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import express from "express";
+import handlebars from "handlebars";
 import expressHandlebars from "express-handlebars";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 
 //const expressHandlebars = require("express-handlebars");
 
-const elements = {
-    main: {
-        links: ["index", "index-media"],
-        scripts: [],
-    },
-    search: {
-        links: ["header", "search", "search-media"],
-        scripts: [],
-    },
-    result: {
-        links: ["header", "result", "result-media"],
-        scripts: [],
-    },
-};
+import { elements, icons } from "./public/out/data.js";
+import { categorizeIngredients } from "./public/out/render/renderSearch.js";
 
 const app = express();
 
 const hbs = expressHandlebars.engine({
     defaultLayout: "main",
     layoutsDir: "views/layouts/",
+    handlebars: allowInsecurePrototypeAccess(handlebars),
+
+    helpers: {
+        calc(value) {
+            return value * 5;
+        },
+    },
 });
 
 const port = process.env.PORT || 3000;
@@ -56,8 +53,18 @@ app.get("/", (req, res) => {
 });
 app.get("/search", (req, res) => {
     res.render("search", {
+        helpers: {
+            //renderSearchIngredients: renderSearchIngredients,
+            indexOf: (arr, ind) => {
+                return arr[ind];
+            },
+        },
         elements: elements.search,
         isNotMain: res.req.url !== "/",
+        filter: {
+            icons: icons,
+            categorized: categorizeIngredients(),
+        },
     });
 });
 app.get("/result", (req, res) => {

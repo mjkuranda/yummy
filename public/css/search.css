@@ -6,7 +6,11 @@ body {
     background-color: var(--orange-yellow-crayola);
 }
 
-
+.icon {
+    --i-size: calc(1em * var(--phi));
+    width: var(--i-size);
+    height: var(--i-size);
+}
 
 #filters {
     display: flex;
@@ -30,6 +34,10 @@ body {
 #filters > div .category {
     margin-top: 1em;
 }
+.category > h3,
+.category li {
+    text-transform: capitalize;
+}
 #filters div ul {
     padding: 1em;
     list-style: none;
@@ -38,22 +46,25 @@ body {
     display: flex;
     align-items: center;
 }
-#filters div ul > li+li {
-    padding-top: .5em;
+#filters div ul > li + li {
+    padding-top: 0.5em;
 }
-#filters div ul > li > input[type=checkbox]+label {
-    margin-left: .5em;
+#filters div ul > li > input[type="checkbox"] + label,
+#filters div ul > li > input[type="checkbox"] + img,
+#filters div ul > li > img + label {
+    margin-left: 0.5em;
 }
-
-
 
 /* Below 1000px */
 @media all and (max-width: 700px) {
     .result-box {
         --in-row: 1;
         --spc: 8px;
-        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
-    
+        --ratio: calc(
+            (100vw - var(--spc) * calc(var(--in-row) - 1)) /
+                (var(--in-row) * (1 + var(--phi)))
+        );
+
         display: flex;
         flex-wrap: wrap;
         width: calc(100vw - (var(--ratio) * var(--in-row)));
@@ -63,7 +74,7 @@ body {
         Margin above elements, but starting with 3rd one (n+3)
         n+4 means line with 3 elements
     */
-    .result-container:nth-child(n+1) {
+    .result-container:nth-child(n + 1) {
         margin-top: var(--spc);
     }
 }
@@ -72,8 +83,11 @@ body {
     .result-box {
         --in-row: 2;
         --spc: 8px;
-        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
-    
+        --ratio: calc(
+            (100vw - var(--spc) * calc(var(--in-row) - 1)) /
+                (var(--in-row) * (1 + var(--phi)))
+        );
+
         display: flex;
         flex-wrap: wrap;
         width: calc(100vw - (var(--ratio) * var(--in-row)));
@@ -84,14 +98,14 @@ body {
         Margin between left and right element
         2n*1 -> the first one in two elements line
     */
-    .result-container:not(:nth-child(2n+1)) {
+    .result-container:not(:nth-child(2n + 1)) {
         margin-left: var(--spc);
     }
     /*
         Margin above elements, but starting with 3rd one (n+3)
         n+4 means line with 3 elements
     */
-    .result-container:nth-child(n+3) {
+    .result-container:nth-child(n + 3) {
         margin-top: var(--spc);
     }
 }
@@ -100,17 +114,20 @@ body {
     .result-box {
         --in-row: 3;
         --spc: 8px;
-        --ratio: calc((100vw - var(--spc) * calc(var(--in-row) - 1)) / (var(--in-row) * (1 + var(--phi))));
-    
+        --ratio: calc(
+            (100vw - var(--spc) * calc(var(--in-row) - 1)) /
+                (var(--in-row) * (1 + var(--phi)))
+        );
+
         display: flex;
         flex-wrap: wrap;
         width: calc(100vw - (var(--ratio) * var(--in-row)));
         margin: var(--spc) auto;
     }
-    .result-container:not(:nth-child(3n+1)) {
+    .result-container:not(:nth-child(3n + 1)) {
         margin-left: var(--spc);
     }
-    .result-container:nth-child(n+4) {
+    .result-container:nth-child(n + 4) {
         margin-top: var(--spc);
     }
 }
@@ -153,7 +170,7 @@ body {
     height: var(--h);
     object-fit: cover;
 }
-.result-description {  
+.result-description {
     --hd: calc(var(--h) / var(--phi));
     width: var(--hd);
     height: var(--hd);
