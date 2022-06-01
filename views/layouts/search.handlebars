@@ -1,40 +1,45 @@
 <section id="filters">
-    <div>
-        <h2>Składniki</h2>
-        <div class="category-container">
-            {{#each filter.categorized as |cat|}}
-                <div class="category">
-                    <h3>{{cat.category}}</h3>
-                    <ul>
-                        {{#each this.ingredients as |ing|}}
-                            <li>
-                                <input type="checkbox" />
-                                <img
-                                    class="icon"
-                                    src="{{ing.icon.src}}"
-                                    alt="'{{ing.icon.name}}' ingredient image"
-                                    author="{{ing.icon.link}}"
-                                />
-                                <label>{{ing.name}}</label>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            {{/each}}
-        </div>
-    </div>
-    <div>
-        <h2>Typy</h2>
-        <div class="category-container">
-            <div class="category">
-                <h3>Kategoria</h3>
-                <ul>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                    <li><input type="checkbox" /><label>Marchew</label></li>
-                </ul>
+    <form action="" method="get">
+        <div>
+            <h2>Składniki</h2>
+            <div class="category-container">
+                {{#each filter.categorized as |cat|}}
+                    <div class="category">
+                        <h3>{{cat.category}}</h3>
+                        <ul>
+                            {{#each this.ingredients as |ing|}}
+                                <li>
+                                    <input type="checkbox" name="ings[]" data-id="{{ing.id}}" value="{{ing.id}}" {{ checkIfChecked (checkIng ing.id)}} />
+                                    <img
+                                        class="icon"
+                                        src="{{ing.icon.src}}"
+                                        alt="'{{ing.icon.name}}' ingredient image"
+                                        author="{{ing.icon.link}}"
+                                    ></imgv>
+                                    <label>{{ing.name}}</label>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/each}}
             </div>
         </div>
-    </div>
+        <div>
+            <h2>Typy</h2>
+            <div class="category-container">
+                <div class="category">
+                    <h3>Kategoria</h3>
+                    <ul>
+                        <li><input type="checkbox" /><label>Marchew</label></li>
+                        <li><input type="checkbox" /><label>Marchew</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="flex-center">
+            <button type="submit">Wyszukaj</button>
+        </div>
+    </form>
 </section>
 
 <main>

@@ -1,7 +1,20 @@
 import { Category } from "../enums/categories";
 import { Icon } from "./icon";
 
+class IngredientStaticData {
+    private static _lastIndex = 0;
+
+    public static getNewIndex(): number {
+        return this._lastIndex++;
+    }
+
+    public static getIndex(): number {
+        return this._lastIndex;
+    }
+}
+
 export class Ingredient {
+    private _id: number;
     private _name: string;
     private _category: Category;
     private _icon: Icon;
@@ -10,6 +23,7 @@ export class Ingredient {
         this._category = category;
         this._icon = icon;
         this._name = name;
+        this._id = IngredientStaticData.getNewIndex();
     }
 
     get category() {
@@ -22,5 +36,9 @@ export class Ingredient {
 
     get name() {
         return this._name;
+    }
+
+    get id() {
+        return this._id;
     }
 }

@@ -1,4 +1,5 @@
 node_modules
 *~
 .DS_STORE
-public/out
+public/out/
+yummy.git

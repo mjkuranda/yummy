@@ -8,11 +8,15 @@ import express from "express";
 import handlebars from "handlebars";
 import expressHandlebars from "express-handlebars";
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
+import bodyParser from "body-parser";
 
 //const expressHandlebars = require("express-handlebars");
 
 import { elements, icons } from "./public/out/data.js";
-import { categorizeIngredients } from "./public/out/render/renderSearch.js";
+import {
+    categorizeIngredients,
+    checkedIngredients,
+} from "./public/out/handlers/searchHandler.js";
 
 const app = express();
 
@@ -38,6 +42,10 @@ const fortunes = [
     "Zawsze szukaj prostego rozwiązania.",
 ];
 
+// BodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Handlebars views
 app.engine("handlebars", hbs);
 app.set("view engine", "handlebars");
@@ -52,21 +60,34 @@ app.get("/", (req, res) => {
     });
 });
 app.get("/search", (req, res) => {
+    let checkedIngs = checkedIngredients(req.query.ings);
+    console.log(req.query.ings);
+
     res.render("search", {
-        helpers: {
-            //renderSearchIngredients: renderSearchIngredients,
-            indexOf: (arr, ind) => {
-                return arr[ind];
-            },
-        },
         elements: elements.search,
         isNotMain: res.req.url !== "/",
         filter: {
             icons: icons,
             categorized: categorizeIngredients(),
         },
+        helpers: {
+            checkIng(id) {
+                // If nothing is checked
+                if (checkedIngs == null) return false;
+                // Otherwise...
+                return checkedIngs[id];
+            },
+            /*
+                Check keyword 'checked' if a ingredient has true
+                - that means - is checked
+            */
+            checkIfChecked(checked) {
+                return checked ? "checked" : "";
+            },
+        },
     });
 });
+app.post("/search", (req, res) => {});
 app.get("/result", (req, res) => {
     res.render("result", {
         elements: elements.result,

@@ -12,14 +12,15 @@ body {
     height: var(--i-size);
 }
 
-#filters {
+form {
     display: flex;
     width: var(--wh);
     margin: 0 var(--mh);
     background-color: var(--honey-yellow);
     border-radius: 0 0 1em 1em;
+    flex-direction: column;
 }
-#filters > div {
+#filters > form > div {
     flex: 1;
     height: 100%;
     padding: 1em;
@@ -31,8 +32,9 @@ body {
 .category-container > div {
     padding: 1em;
 }
-#filters > div .category {
+#filters > form > div .category {
     margin-top: 1em;
+    width: 33%;
 }
 .category > h3,
 .category li {
