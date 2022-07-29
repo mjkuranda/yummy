@@ -38,8 +38,10 @@ export const categorizeIngredients = (): ICategorized[] => {
     Returns an array consisted of boolean values
     for each ingredient (checked or not)
 */
-export const checkedIngredients = (ingsAsQuery: string[]): boolean[] => {
-    if (ingsAsQuery == undefined) return null;
+export const checkedIngredients = (
+    ingsAsQuery: string[] | undefined
+): boolean[] | null => {
+    if (ingsAsQuery === undefined) return null;
 
     let ings: boolean[] = [];
     const ingsIds: number[] = ingsAsQuery.map((i) => {

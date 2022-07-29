@@ -1,7 +1,7 @@
-import { Ingredient } from "./classes/ingredient.js";
-import { Meal, Type } from "./classes/meal.js";
-import { Icon } from "./classes/icon.js";
-import { Category } from "./enums/categories.js";
+import { Ingredient } from "./classes/ingredient";
+import { Meal, Type } from "./classes/meal";
+import { Icon } from "./classes/icon";
+import { Category } from "./enums/categories";
 
 /* Elements for subsites */
 export const elements = {
