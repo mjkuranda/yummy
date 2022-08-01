@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.engine("handlebars", hbs);
 app.set("view engine", "handlebars");
 app.set("views", "./views/layouts");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "\\..\\public"));
 
 app.get("/db", async (req: Request, res: Response) => {
     const meals = await Promise.resolve(getMeals());

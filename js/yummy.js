@@ -46,7 +46,7 @@ app.use(body_parser_1.default.json());
 app.engine("handlebars", hbs);
 app.set("view engine", "handlebars");
 app.set("views", "./views/layouts");
-app.use(express_1.default.static(__dirname + "/public"));
+app.use(express_1.default.static(__dirname + "\\..\\public"));
 app.get("/db", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const meals = yield Promise.resolve((0, db_1.getMeals)());
     res.send(meals);
