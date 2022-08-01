@@ -1,22 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkedIngredients = exports.categorizeIngredients = void 0;
-const data_js_1 = require("../data.js");
-const categories_js_1 = require("../enums/categories.js");
+exports.getMeals = exports.checkedIngredients = exports.categorizeIngredients = void 0;
+const data_1 = require("../data");
+// import { db } from "../db";
+const categories_1 = require("../enums/categories");
 /*
     Returns array of ingredients' categories
     that are consisted of ingredients themselves types.
 */
 const categorizeIngredients = () => {
     let categorized = [];
-    Object.values(categories_js_1.Category).forEach((category) => {
+    Object.values(categories_1.Category).forEach((category) => {
         let cat = {
             category: category,
             ingredients: [],
         };
         categorized.push(cat);
     });
-    const ingr = Object.values(data_js_1.ingredients);
+    const ingr = Object.values(data_1.ingredients);
     ingr.forEach((el) => {
         for (let i = 0; i < categorized.length; i++) {
             if (categorized[i].category == el.category) {
@@ -39,9 +40,20 @@ const checkedIngredients = (ingsAsQuery) => {
     const ingsIds = ingsAsQuery.map((i) => {
         return +i;
     });
-    Object.keys(data_js_1.ingredients).forEach((i, id) => {
+    Object.keys(data_1.ingredients).forEach((i, id) => {
         ings[id] = ingsIds.includes(id, 0);
     });
     return ings;
 };
 exports.checkedIngredients = checkedIngredients;
+/*
+    @param filters object containing:
+    ingredients, type
+*/
+const getMeals = (filters) => {
+    // console.log(db);
+    if (filters.ingredients.length >= 1)
+        return null;
+    return null;
+};
+exports.getMeals = getMeals;

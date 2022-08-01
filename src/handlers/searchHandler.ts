@@ -1,6 +1,8 @@
-import { Ingredient } from "../classes/ingredient.js";
-import { ingredients } from "../data.js";
-import { Category } from "../enums/categories.js";
+import { Ingredient } from "../classes/ingredient";
+import { Meal } from "../classes/meal";
+import { ingredients } from "../data";
+// import { db } from "../db";
+import { Category } from "../enums/categories";
 
 interface ICategorized {
     category: Category;
@@ -53,4 +55,20 @@ export const checkedIngredients = (
     });
 
     return ings;
+};
+
+type FilterType = {
+    ingredients: Ingredient[];
+    type: string;
+};
+
+/*
+    @param filters object containing:
+    ingredients, type
+*/
+export const getMeals = (filters: FilterType): Meal[] | null => {
+    // console.log(db);
+
+    if (filters.ingredients.length >= 1) return null;
+    return null;
 };

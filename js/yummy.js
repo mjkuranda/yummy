@@ -1,26 +1,36 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// import handlebars from "handlebars";
-// import expressHandlebars from "express-handlebars";
-// import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
+const handlebars_1 = __importDefault(require("handlebars"));
+const express_handlebars_1 = require("express-handlebars");
+const allow_prototype_access_1 = require("@handlebars/allow-prototype-access");
 const body_parser_1 = __importDefault(require("body-parser"));
 const data_1 = require("./data");
 const searchHandler_1 = require("./handlers/searchHandler");
+const db_1 = require("./db");
 const app = (0, express_1.default)();
-// const hbs = expressHandlebars.engine({
-//     defaultLayout: "main",
-//     layoutsDir: "views/layouts/",
-//     handlebars: allowInsecurePrototypeAccess(handlebars),
-//     helpers: {
-//         calc(value: number) {
-//             return value * 5;
-//         },
-//     },
-// });
+const hbs = (0, express_handlebars_1.engine)({
+    defaultLayout: "main",
+    layoutsDir: "views/layouts/",
+    handlebars: (0, allow_prototype_access_1.allowInsecurePrototypeAccess)(handlebars_1.default),
+    helpers: {
+        calc(value) {
+            return value * 5;
+        },
+    },
+});
 const port = process.env.PORT || 3000;
 const fortunes = [
     "Pokonaj swoje lęki, albo one pokonają ciebie.",
@@ -33,13 +43,14 @@ const fortunes = [
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
 // Handlebars views
-// app.engine("handlebars", hbs);
+app.engine("handlebars", hbs);
 app.set("view engine", "handlebars");
 app.set("views", "./views/layouts");
 app.use(express_1.default.static(__dirname + "/public"));
-app.get("/db", (req, res) => {
-    res.send(`${req.query.x}`);
-});
+app.get("/db", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const meals = yield Promise.resolve((0, db_1.getMeals)());
+    res.send(meals);
+}));
 // Tracing
 app.get("/", (req, res) => {
     res.render("index", {

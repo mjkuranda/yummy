@@ -1,7 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-// import handlebars from "handlebars";
-// import expressHandlebars from "express-handlebars";
-// import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
+import handlebars from "handlebars";
+import { engine } from "express-handlebars";
+import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import bodyParser from "body-parser";
 
 import { elements, icons } from "./data";
@@ -9,20 +9,21 @@ import {
     categorizeIngredients,
     checkedIngredients,
 } from "./handlers/searchHandler";
+import { getMeals } from "./db";
 
 const app: Express = express();
 
-// const hbs = expressHandlebars.engine({
-//     defaultLayout: "main",
-//     layoutsDir: "views/layouts/",
-//     handlebars: allowInsecurePrototypeAccess(handlebars),
+const hbs = engine({
+    defaultLayout: "main",
+    layoutsDir: "views/layouts/",
+    handlebars: allowInsecurePrototypeAccess(handlebars),
 
-//     helpers: {
-//         calc(value: number) {
-//             return value * 5;
-//         },
-//     },
-// });
+    helpers: {
+        calc(value: number) {
+            return value * 5;
+        },
+    },
+});
 
 const port = process.env.PORT || 3000;
 
@@ -39,13 +40,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Handlebars views
-// app.engine("handlebars", hbs);
+app.engine("handlebars", hbs);
 app.set("view engine", "handlebars");
 app.set("views", "./views/layouts");
 app.use(express.static(__dirname + "/public"));
 
-app.get("/db", (req: Request, res: Response) => {
-    res.send(`${req.query.x}`);
+app.get("/db", async (req: Request, res: Response) => {
+    const meals = await Promise.resolve(getMeals());
+    res.send(meals);
 });
 
 // Tracing
