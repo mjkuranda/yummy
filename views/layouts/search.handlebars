@@ -9,7 +9,7 @@
                         <ul>
                             {{#each this.ingredients as |ing|}}
                                 <li>
-                                    <input type="checkbox" name="ings[]" data-id="{{ing.id}}" value="{{ing.id}}" {{ checkIfChecked (checkIng ing.id)}} />
+                                    <input type="checkbox" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" {{ tryToCheck ing.icon.name}} />
                                     <img
                                         class="icon"
                                         src="{{ing.icon.src}}"

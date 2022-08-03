@@ -43,6 +43,8 @@ export const categorizeIngredients = (): ICategorized[] => {
 export const checkedIngredients = (
     ingsAsQuery: string[] | undefined
 ): boolean[] | null => {
+    console.log("Ings", ingsAsQuery);
+
     if (ingsAsQuery === undefined) return null;
 
     let ings: boolean[] = [];

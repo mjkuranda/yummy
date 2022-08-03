@@ -58,9 +58,8 @@ app.get("/", (req: Request, res: Response) => {
     });
 });
 app.get("/search", (req: Request, res: Response) => {
-    const queryStr = typeof req.query.ings;
-    let checkedIngs = checkedIngredients(undefined);
-    console.log(queryStr);
+    const query = req.query.ings as string[];
+    let checkedIngs = checkedIngredients(query);
 
     res.render("search", {
         elements: elements.search,
@@ -70,18 +69,8 @@ app.get("/search", (req: Request, res: Response) => {
             categorized: categorizeIngredients(),
         },
         helpers: {
-            checkIng(id: number) {
-                // If nothing is checked
-                if (checkedIngs == null) return false;
-                // Otherwise...
-                return checkedIngs[id];
-            },
-            /*
-                Check keyword 'checked' if a ingredient has true
-                - that means - is checked
-            */
-            checkIfChecked(checked: boolean) {
-                return checked ? "checked" : "";
+            tryToCheck(ingredientKey: string) {
+                return query.includes(ingredientKey) ? "checked" : "";
             },
         },
     });

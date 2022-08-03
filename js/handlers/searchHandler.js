@@ -34,6 +34,7 @@ exports.categorizeIngredients = categorizeIngredients;
     for each ingredient (checked or not)
 */
 const checkedIngredients = (ingsAsQuery) => {
+    console.log("Ings", ingsAsQuery);
     if (ingsAsQuery === undefined)
         return null;
     let ings = [];

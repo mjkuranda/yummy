@@ -1,3 +1,3 @@
-import { Category } from "./enums/categories";
+// import { Category } from "./enums/categories";
 
-console.log(Category.SEAFISH);
+// console.log(Category.SEAFISH);
