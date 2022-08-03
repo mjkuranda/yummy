@@ -2,6 +2,7 @@ import { Meal } from "../src/classes/meal";
 
 export interface IDatabase {
     init(): Promise<void>;
+    isInitialized(): boolean;
 
     /*
      *   @param ings: Array that contains ingredients' names

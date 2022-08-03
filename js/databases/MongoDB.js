@@ -16,14 +16,23 @@ exports.MongoDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const MealModel_1 = require("../databases/models/MealModel");
 class MongoDB {
+    constructor() {
+        this.isConnected = false;
+    }
     init() {
         return __awaiter(this, void 0, void 0, function* () {
             mongoose_1.default.connect("mongodb://localhost:27017/yummy");
             const db = mongoose_1.default.connection;
             db.on("error", () => console.error("MongoDB Connection error"));
-            db.once("open", () => console.log("Connected to the db!"));
+            db.once("open", () => {
+                console.log("Connected to the db!");
+                this.isConnected = true;
+            });
             console.log("MongoDB has been initialized!");
         });
+    }
+    isInitialized() {
+        return this.isConnected;
     }
     get(ings) {
         return __awaiter(this, void 0, void 0, function* () {
