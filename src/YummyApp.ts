@@ -1,9 +1,10 @@
-import express, { Express, NextFunction, Request, Response } from "express";
+import express, { Express } from "express";
 import handlebars from "handlebars";
 import { engine } from "express-handlebars";
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import bodyParser from "body-parser";
 import { YummyRouter } from "./YummyRouter";
+import { IDatabase } from "../databases/IDatabase";
 
 export class YummyApp {
     private app: Express;
@@ -11,7 +12,7 @@ export class YummyApp {
     private port: string | number;
     private router: YummyRouter;
 
-    constructor() {
+    constructor(private readonly db: IDatabase) {
         this.app = express();
         this.hbs = engine({
             defaultLayout: "main",
@@ -29,12 +30,16 @@ export class YummyApp {
         this.app.engine("handlebars", this.hbs);
         this.app.set("view engine", "handlebars");
         this.app.set("views", "./views/layouts");
-        this.app.use(express.static(__dirname + "\\..\\public"));
+        this.app.use(express.static(__dirname + "\\..\\..\\public\\"));
 
         // Init router
-        this.router = new YummyRouter();
-        this.app.use("/db", this.router.db.bind(this.router));
-        // Implement other routes
+        this.router = new YummyRouter(this.db);
+        this.app.get("/dev", this.router.dev.bind(this.router));
+        this.app.get("/", this.router.main.bind(this.router));
+        this.app.get("/search", this.router.search.bind(this.router));
+        this.app.get("/result", this.router.result.bind(this.router));
+        this.app.use(this.router.error404.bind(this.router));
+        this.app.use(this.router.error500.bind(this.router));
 
         // Run the app
         this.port = process.env.PORT || 3000;
@@ -42,7 +47,7 @@ export class YummyApp {
         this.app.listen(this.port, () =>
             console.log(
                 `Express has been run at the address:
-        http://localhost:${port};
+        http://localhost:${this.port};
         Press Ctrl-C to terminate it.`
             )
         );

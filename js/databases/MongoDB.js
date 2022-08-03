@@ -21,14 +21,14 @@ class MongoDB {
     }
     init() {
         return __awaiter(this, void 0, void 0, function* () {
-            mongoose_1.default.connect("mongodb://localhost:27017/yummy");
+            yield mongoose_1.default.connect("mongodb://localhost:27017/yummy");
             const db = mongoose_1.default.connection;
             db.on("error", () => console.error("MongoDB Connection error"));
             db.once("open", () => {
-                console.log("Connected to the db!");
+                console.log("Connected to the MongoDB!");
                 this.isConnected = true;
             });
-            console.log("MongoDB has been initialized!");
+            console.log("MongoDB instance has been initialized");
         });
     }
     isInitialized() {

@@ -11,16 +11,16 @@ export class MongoDB implements IDatabase {
     }
 
     public async init(): Promise<void> {
-        mongoose.connect("mongodb://localhost:27017/yummy");
+        await mongoose.connect("mongodb://localhost:27017/yummy");
 
         const db = mongoose.connection;
         db.on("error", () => console.error("MongoDB Connection error"));
         db.once("open", () => {
-            console.log("Connected to the db!");
+            console.log("Connected to the MongoDB!");
             this.isConnected = true;
         });
 
-        console.log("MongoDB has been initialized!");
+        console.log("MongoDB instance has been initialized");
     }
 
     public isInitialized(): boolean {
