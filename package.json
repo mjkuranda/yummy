@@ -7,7 +7,7 @@
         "compile": "tsc --watch",
         "build": "npx tsc",
         "start": "node js/yummy.js",
-        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q js/yummy.js\""
+        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q js/src/yummy.js\""
     },
     "repository": {
         "type": "git",

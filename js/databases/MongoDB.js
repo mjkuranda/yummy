@@ -12,20 +12,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.x = exports.getMeals = void 0;
+exports.MongoDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const MealModel_1 = require("./models/MealModel");
-// mongoose
-//     .connect("mongodb://localhost:27017/yummy")
-//     .then(() => console.log("Connected to database!"))
-//     .catch((error) => console.error(error));
-mongoose_1.default.connect("mongodb://localhost:27017/yummy");
-const db = mongoose_1.default.connection;
-db.on("error", console.error.bind(console, "MongoDB Connection error")).once("open", () => console.log("Connected to the db!"));
-const getMeals = () => __awaiter(void 0, void 0, void 0, function* () {
-    const meals = yield MealModel_1.MealModel.find();
-    return meals;
-});
-exports.getMeals = getMeals;
-exports.x = 5;
-// export const db = mongoose.connection;
+const MealModel_1 = require("../databases/models/MealModel");
+class MongoDB {
+    init() {
+        return __awaiter(this, void 0, void 0, function* () {
+            mongoose_1.default.connect("mongodb://localhost:27017/yummy");
+            const db = mongoose_1.default.connection;
+            db.on("error", () => console.error("MongoDB Connection error"));
+            db.once("open", () => console.log("Connected to the db!"));
+            console.log("MongoDB has been initialized!");
+        });
+    }
+    get(ings) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const meals = (yield MealModel_1.MealModel.find({
+                ingredients: { $in: ings },
+            }));
+            return meals;
+        });
+    }
+}
+exports.MongoDB = MongoDB;

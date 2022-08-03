@@ -19,7 +19,7 @@ const allow_prototype_access_1 = require("@handlebars/allow-prototype-access");
 const body_parser_1 = __importDefault(require("body-parser"));
 const data_1 = require("./data");
 const searchHandler_1 = require("./handlers/searchHandler");
-const db_1 = require("./db");
+const MongoDB_1 = require("../databases/MongoDB");
 const app = (0, express_1.default)();
 const hbs = (0, express_handlebars_1.engine)({
     defaultLayout: "main",
@@ -32,13 +32,6 @@ const hbs = (0, express_handlebars_1.engine)({
     },
 });
 const port = process.env.PORT || 3000;
-const fortunes = [
-    "Pokonaj swoje lęki, albo one pokonają ciebie.",
-    "Rzeki potrzebują źródeł.",
-    "Nie obawiaj się nieznanego.",
-    "Oczekuj przyjemnej niespodzianki.",
-    "Zawsze szukaj prostego rozwiązania.",
-];
 // BodyParser
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
@@ -48,8 +41,11 @@ app.set("view engine", "handlebars");
 app.set("views", "./views/layouts");
 app.use(express_1.default.static(__dirname + "\\..\\public"));
 app.get("/db", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const meals = yield Promise.resolve((0, db_1.getMeals)());
-    res.send(meals);
+    const mydb = new MongoDB_1.MongoDB();
+    yield mydb.init();
+    const meals = yield mydb.get(["carrot"]);
+    console.log("Result:", meals);
+    res.send("x");
 }));
 // Tracing
 app.get("/", (req, res) => {
@@ -60,7 +56,6 @@ app.get("/", (req, res) => {
 });
 app.get("/search", (req, res) => {
     const query = req.query.ings;
-    let checkedIngs = (0, searchHandler_1.checkedIngredients)(query);
     res.render("search", {
         elements: data_1.elements.search,
         isNotMain: res.req.url !== "/",
@@ -81,10 +76,6 @@ app.get("/result", (req, res) => {
         elements: data_1.elements.result,
         isNotMain: res.req.url !== "/",
     });
-});
-app.get("/about", (req, res) => {
-    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-    res.render("about", { fortune: randomFortune });
 });
 // Error 500
 app.use((err, req, res, next) => {

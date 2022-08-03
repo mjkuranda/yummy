@@ -5,11 +5,8 @@ import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access
 import bodyParser from "body-parser";
 
 import { elements, icons } from "./data";
-import {
-    categorizeIngredients,
-    checkedIngredients,
-} from "./handlers/searchHandler";
-import { getMeals } from "./db";
+import { categorizeIngredients } from "./handlers/searchHandler";
+import { MongoDB } from "../databases/MongoDB";
 
 const app: Express = express();
 
@@ -27,14 +24,6 @@ const hbs = engine({
 
 const port = process.env.PORT || 3000;
 
-const fortunes = [
-    "Pokonaj swoje lęki, albo one pokonają ciebie.",
-    "Rzeki potrzebują źródeł.",
-    "Nie obawiaj się nieznanego.",
-    "Oczekuj przyjemnej niespodzianki.",
-    "Zawsze szukaj prostego rozwiązania.",
-];
-
 // BodyParser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -46,8 +35,12 @@ app.set("views", "./views/layouts");
 app.use(express.static(__dirname + "\\..\\public"));
 
 app.get("/db", async (req: Request, res: Response) => {
-    const meals = await Promise.resolve(getMeals());
-    res.send(meals);
+    const mydb = new MongoDB();
+    await mydb.init();
+    const meals = await mydb.get(["carrot"]);
+
+    console.log("Result:", meals);
+    res.send("x");
 });
 
 // Tracing
@@ -59,7 +52,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 app.get("/search", (req: Request, res: Response) => {
     const query = req.query.ings as string[];
-    let checkedIngs = checkedIngredients(query);
 
     res.render("search", {
         elements: elements.search,
@@ -81,10 +73,6 @@ app.get("/result", (req: Request, res: Response) => {
         elements: elements.result,
         isNotMain: res.req.url !== "/",
     });
-});
-app.get("/about", (req: Request, res: Response) => {
-    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-    res.render("about", { fortune: randomFortune });
 });
 
 // Error 500
