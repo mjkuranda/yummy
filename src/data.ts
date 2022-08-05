@@ -34,13 +34,22 @@ export const elements = {
         scripts: [],
         prefixPath: "../",
     },
+    mealsAddNew: {
+        links: [
+            { link: "header", prefix: "../" },
+            { link: "meals-add", prefix: "../" },
+            { link: "meals-add-new", prefix: "../" },
+        ],
+        scripts: [],
+        prefixPath: "../",
+    },
 };
 
 /* Icons */
 export const icons = {
     listView: new Icon(
         "list-view",
-        "/",
+        "",
         undefined,
         "https://icons8.com/icon/13296/list-view"
     ),

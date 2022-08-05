@@ -1,0 +1,44 @@
+body {
+    background-color: var(--orange-yellow-crayola);
+}
+
+.new-meal-container {
+    background-color: var(--honey-yellow);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.new-meal-data-container {
+    padding: 2em;
+    width: 400px;
+}
+
+.new-meal-data-container > div + div {
+    margin-top: 2em;
+}
+
+.new-meal-data-container > div:not(div:nth-child(2)) > h3,
+.new-meal-data-container > div:not(div:nth-child(2)) > p {
+    text-align: center;
+}
+
+.new-meal-ingredients-container > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-meal-ingredients-container > ul > li {
+    margin-left: 0.5em;
+}
+
+.new-meal-ingredients-container > ul > li > i + span {
+    margin-left: 0.5em;
+}
+
+.new-meal-buttons {
+    margin-top: 2em;
+}
+
+.new-meal-buttons > div + div {
+    margin-top: 1em;
+}

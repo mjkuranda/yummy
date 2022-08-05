@@ -1,0 +1,36 @@
+<main>
+    <div class="meals-add-nav">
+        <a href="{{prefixPath}}meals/add"><i
+                class="fa fa-chevron-circle-left"
+            ></i>Wróć, by dodać kolejny posiłek</a>
+    </div>
+    <div class="new-meal-container">
+        <div class="flex-center"><h2>Dodano nowy posiłek!</h2></div>
+        <div class="flex-center">
+            <div class="new-meal-data-container">
+                <div><h3>{{meal.details.title}}</h3></div>
+                <div><p>{{meal.details.description}}</p></div>
+                <div class="new-meal-ingredients-container">
+                    <ul>
+                        {{#each icons}}
+                            <li>
+                                <img
+                                        class="icon"
+                                        src="../{{src}}"
+                                        alt="'{{name}}' ingredient image"
+                                        author="{{link}}"
+                                    ></img>
+                                <span>{{name}}</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div><p><b>Dodał:</b> <i>{{meal.author}}</i></p></div>
+            </div>
+        </div>
+        <div class="new-meal-buttons">
+            <div class="flex-center"><button>Wyszukaj posiłek</button></div>
+            <div class="flex-center"><button>Wróć do strony głównej</button></div>
+        </div>
+    </div>
+</main>

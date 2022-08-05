@@ -69,14 +69,24 @@ export class YummyRouter {
             ingredients: req.body["ings[]"],
         });
 
+        // Mapping selected icons
+        let ingIcons = [];
+        for (const ing of meal.ingredients) {
+            ingIcons.push(icons[ing as keyof typeof icons]);
+        }
+
         try {
             const newMeal = await meal.save();
-            res.status(201).json(newMeal);
+            res.status(201).render("meals-add-new", {
+                prefixPath: "../",
+                elements: elements.mealsAddNew,
+                isNotMain: res.req.url !== "/",
+                meal: newMeal,
+                icons: ingIcons,
+            });
         } catch (err) {
             res.status(400);
         }
-
-        res.send(`<code>${meal}</code>`);
     }
 
     public error404(req: Request, res: Response): void {

@@ -6,12 +6,6 @@ body {
     background-color: var(--orange-yellow-crayola);
 }
 
-.icon {
-    --i-size: calc(1em * var(--phi));
-    width: var(--i-size);
-    height: var(--i-size);
-}
-
 form {
     display: flex;
     width: var(--wh);
