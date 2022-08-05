@@ -45,6 +45,13 @@ export class YummyRouter {
         });
     }
 
+    public mealsAdd(req: Request, res: Response): void {
+        res.render("mealsAdd", {
+            prefixPath: "../",
+            elements: elements.mealsAdd,
+        });
+    }
+
     public error404(req: Request, res: Response): void {
         res.status(404);
         res.render("404");

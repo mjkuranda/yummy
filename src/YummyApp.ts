@@ -19,7 +19,11 @@ export class YummyApp {
             layoutsDir: "views/layouts/",
             handlebars: allowInsecurePrototypeAccess(handlebars),
 
-            helpers: {},
+            helpers: {
+                insertPath(path: string) {
+                    return path;
+                },
+            },
         });
 
         // BodyParser
@@ -38,6 +42,7 @@ export class YummyApp {
         this.app.get("/", this.router.main.bind(this.router));
         this.app.get("/search", this.router.search.bind(this.router));
         this.app.get("/result", this.router.result.bind(this.router));
+        this.app.get("/meals/add", this.router.mealsAdd.bind(this.router));
         this.app.use(this.router.error404.bind(this.router));
         this.app.use(this.router.error500.bind(this.router));
 

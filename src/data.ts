@@ -6,16 +6,29 @@ import { Category } from "./enums/categories";
 /* Elements for subsites */
 export const elements = {
     main: {
-        links: ["index", "index-media"],
+        links: [{ link: "index" }, { link: "index-media" }],
         scripts: [],
     },
     search: {
-        links: ["header", "search", "search-media"],
+        links: [
+            { link: "header" },
+            { link: "search" },
+            { link: "search-media" },
+        ],
         scripts: [],
     },
     result: {
-        links: ["header", "result", "result-media"],
+        links: [
+            { link: "header" },
+            { link: "result" },
+            { link: "result-media" },
+        ],
         scripts: [],
+    },
+    mealsAdd: {
+        links: [{ link: "header", prefix: "../" }],
+        scripts: [],
+        prefixPath: "../",
     },
 };
 
