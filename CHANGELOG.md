@@ -1,5 +1,17 @@
 # Yummy Changelog
 
+## [2.1.0] - 2022-08-05
+
+### Added
+
+-   [mjkuranda]: Add new meals
+
+### Feature
+
+-   Adds /meals/new subpage
+-   Allows to add new meal in /meals/add subpage
+-   Adds subpage that displays message about adding new meal
+
 ## [2.0.0] - 2022-08-03
 
 ### Added
