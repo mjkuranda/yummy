@@ -7,6 +7,22 @@ ul {
     list-style: none;
 }
 
+input {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: 1px solid;
+    width: 256px;
+}
+
+textarea {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    resize: vertical;
+    overflow: auto;
+    max-height: 400px;
+    min-height: 128px;
+}
+
 main > div + div {
     margin-top: 0.5em;
 }
@@ -28,5 +44,9 @@ main > div + div {
 }
 
 .meals-add-container > form > div {
-    margin-top: 1em;
+    margin-top: 2em;
+}
+
+.meals-add-container > form > div > div.flex-center {
+    margin-top: 0.5em;
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { IDatabase } from "../databases/IDatabase";
+import { MealModel } from "../databases/models/MealModel";
 import { elements, icons } from "./data";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
@@ -55,6 +56,27 @@ export class YummyRouter {
                 categorized: categorizeIngredients(),
             },
         });
+    }
+
+    public async mealsAddNew(req: Request, res: Response): Promise<void> {
+        const meal = new MealModel({
+            author: req.body.author,
+            posted: new Date().getTime(),
+            details: {
+                title: req.body.title,
+                description: req.body.description,
+            },
+            ingredients: req.body["ings[]"],
+        });
+
+        try {
+            const newMeal = await meal.save();
+            res.status(201).json(newMeal);
+        } catch (err) {
+            res.status(400);
+        }
+
+        res.send(`<code>${meal}</code>`);
     }
 
     public error404(req: Request, res: Response): void {
