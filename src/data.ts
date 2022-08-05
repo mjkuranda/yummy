@@ -26,7 +26,11 @@ export const elements = {
         scripts: [],
     },
     mealsAdd: {
-        links: [{ link: "header", prefix: "../" }],
+        links: [
+            { link: "header", prefix: "../" },
+            { link: "meals-add", prefix: "../" },
+            { link: "search", prefix: "../" },
+        ],
         scripts: [],
         prefixPath: "../",
     },

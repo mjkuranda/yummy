@@ -46,9 +46,14 @@ export class YummyRouter {
     }
 
     public mealsAdd(req: Request, res: Response): void {
-        res.render("mealsAdd", {
+        res.render("meals-add", {
             prefixPath: "../",
             elements: elements.mealsAdd,
+            isNotMain: res.req.url !== "/",
+            filter: {
+                icons: icons,
+                categorized: categorizeIngredients(),
+            },
         });
     }
 

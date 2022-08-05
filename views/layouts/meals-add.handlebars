@@ -1,0 +1,51 @@
+<main>
+    <div class="meals-add-nav">
+        <a href="../../"><i class="fa fa-chevron-circle-left"></i>Wróć do
+            wyszukiwania</a>
+    </div>
+    <div class="meals-add-container">
+        <form>
+            <div class="flex-center">
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Wprowadź tytuł posiłku"
+                />
+            </div>
+            <div class="flex-center">
+                <textarea
+                    cols="32"
+                    rows="10"
+                    name="description"
+                    placeholder="Wprowadź opis dla posiłku"
+                ></textarea>
+            </div>
+            <div>
+            <h2>Składniki</h2>
+            <div class="category-container">
+                {{#each filter.categorized as |cat|}}
+                    <div class="category">
+                        <h3>{{cat.category}}</h3>
+                        <ul>
+                            {{#each this.ingredients as |ing|}}
+                                <li>
+                                    <input type="checkbox" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" />
+                                    <img
+                                        class="icon"
+                                        src="../../{{ing.icon.src}}"
+                                        alt="'{{ing.icon.name}}' ingredient image"
+                                        author="{{ing.icon.link}}"
+                                    ></imgv>
+                                    <label>{{ing.name}}</label>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="flex-center">
+                <input type="text" name="author" placeholder="Wprowadź swoje imię" />
+            </div>
+        </form>
+    </div>
+</main>
