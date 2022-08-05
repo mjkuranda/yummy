@@ -15,7 +15,7 @@ export class YummyApp {
     constructor(private readonly db: IDatabase) {
         this.app = express();
         this.hbs = engine({
-            defaultLayout: "main",
+            defaultLayout: "index",
             layoutsDir: "views/layouts/",
             handlebars: allowInsecurePrototypeAccess(handlebars),
 

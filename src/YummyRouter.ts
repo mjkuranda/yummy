@@ -13,7 +13,7 @@ export class YummyRouter {
     }
 
     public main(req: Request, res: Response): void {
-        res.render("index", {
+        res.render("main", {
             elements: elements.main,
             isNotMain: res.req.url !== "/",
         });
