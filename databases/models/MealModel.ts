@@ -12,13 +12,28 @@ interface IMealSchema {
 }
 
 const mealSchema = new mongoose.Schema<IMealSchema>({
-    author: String,
-    posted: String,
-    details: {
-        title: String,
-        description: String,
+    author: {
+        type: String,
+        required: true,
     },
-    ingredients: [String],
+    posted: {
+        type: String,
+        required: true,
+    },
+    details: {
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },
+    },
+    ingredients: {
+        type: [String],
+        required: true,
+    },
     image: String,
 });
 

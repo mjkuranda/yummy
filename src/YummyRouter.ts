@@ -89,8 +89,8 @@ export class YummyRouter {
                 meal: newMeal,
                 icons: ingIcons,
             });
-        } catch (err) {
-            res.status(400);
+        } catch (err: any) {
+            res.status(400).send(err.message);
         }
     }
 
