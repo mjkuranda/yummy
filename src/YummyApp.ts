@@ -32,7 +32,7 @@ export class YummyApp {
         const upload = multer({
             storage: fileStorage,
             fileFilter: fileFilter,
-            limits: { fileSize: 1024 * 1024 * 1 }, // 1 MB
+            limits: { fileSize: 1024 * 1024 * 10 }, // 10 MB
         }).single("image");
 
         // BodyParser

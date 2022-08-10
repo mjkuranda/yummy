@@ -59,11 +59,7 @@ export class YummyRouter {
         });
     }
 
-    public async mealsAddNew(
-        req: Request,
-        res: Response,
-        upload: any
-    ): Promise<void> {
+    public async mealsAddNew(req: Request, res: Response): Promise<void> {
         const meal = new MealModel({
             author: req.body.author,
             posted: new Date().getTime(),
@@ -71,10 +67,12 @@ export class YummyRouter {
                 title: req.body.title,
                 description: req.body.description,
             },
-            ingredients: req.body["ings[]"],
+            ingredients: req.body["ings"],
         });
 
-        console.log("File:", req.file);
+        if (req.file) {
+            meal.image = req.file.path.split("\\")[1];
+        }
 
         // Mapping selected icons
         let ingIcons = [];
@@ -100,20 +98,8 @@ export class YummyRouter {
         if (err instanceof multer.MulterError) {
             switch (err.code) {
                 case "LIMIT_FILE_SIZE":
-                    res.json({
-                        message: "Plik jest zbyt duży!",
-                    });
+                    res.send("Plik jest zbyt duży");
                     break;
-            }
-        }
-    }
-
-    public error(req: Request, res: Response, err: any): any {
-        if (err instanceof multer.MulterError) {
-            if (err.code === "LIMIT_FILE_SIZE") {
-                return res.json({
-                    message: "Plik jest zbyt duży!",
-                });
             }
         }
     }

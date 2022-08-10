@@ -8,6 +8,7 @@ interface IMealSchema {
         description: String;
     };
     ingredients: String[];
+    image: string;
 }
 
 const mealSchema = new mongoose.Schema<IMealSchema>({
@@ -18,6 +19,7 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
         description: String,
     },
     ingredients: [String],
+    image: String,
 });
 
 export const MealModel = mongoose.model<IMealSchema>("Meal", mealSchema);
