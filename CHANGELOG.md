@@ -1,5 +1,22 @@
 # Yummy Changelog
 
+## [2.2.0] - 2022-08-10
+
+### Added
+
+-   [mjkuranda]: Add images to the meals
+
+### Feature
+
+-   Adds opportunity adding images with new meal
+-   Handles limits error multer
+
+### Bugfix
+
+-   Fetch correctly selected ingredients of new meal
+-   Render all ingredients icon
+-   Validation after serverside for new meal
+
 ## [2.1.0] - 2022-08-05
 
 ### Added

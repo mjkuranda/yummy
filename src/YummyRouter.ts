@@ -77,7 +77,7 @@ export class YummyRouter {
         // Mapping selected icons
         let ingIcons = [];
         for (const ing of meal.ingredients) {
-            ingIcons.push(icons[ing as keyof typeof icons]);
+            ingIcons.push(icons[ing.replace("-", "_") as keyof typeof icons]);
         }
 
         try {
