@@ -1,12 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { AnyArray } from "mongoose";
 
 interface IMealSchema {
     author: String;
     posted: String;
-    details: {
-        title: String;
-        description: String;
-    };
+    title: String;
+    description: String;
     ingredients: String[];
     image: string;
 }
@@ -20,19 +18,23 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
         type: String,
         required: true,
     },
-    details: {
-        title: {
-            type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
-        },
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
     },
     ingredients: {
         type: [String],
         required: true,
+        validate: [
+            function (val: any) {
+                return val.length > 0;
+            },
+            "Posiłek powinien zawierać chociaż jeden składnik!",
+        ],
     },
     image: String,
 });

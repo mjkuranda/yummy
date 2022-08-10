@@ -65,10 +65,8 @@ export class YummyRouter {
         const meal = new MealModel({
             author: req.body.author,
             posted: new Date().getTime(),
-            details: {
-                title: req.body.title,
-                description: req.body.description,
-            },
+            title: req.body.title,
+            description: req.body.description,
             ingredients: req.body["ings"],
         });
 
@@ -105,11 +103,10 @@ export class YummyRouter {
         let meal = null;
 
         try {
-            meal = await MealModel.find({ "details.title": req.body.title });
-            if (meal.length) {
-                return res
-                    .status(400)
-                    .send("Istnieje już posiłek o takiej nazwie!");
+            meal = await MealModel.findOne({ title: req.body.title });
+            if (meal) {
+                return res.status(400).send(req.body.title);
+                // .send("Istnieje już posiłek o takiej nazwie!");
             }
         } catch (err: any) {
             return res.status(500).send({ message: err.message });
@@ -129,6 +126,9 @@ export class YummyRouter {
             switch (err.code) {
                 case "LIMIT_FILE_SIZE":
                     res.send("Plik jest zbyt duży");
+                    break;
+                case "LIMIT_UNEXPECTED_FILE":
+                    res.send("Plik musi być obrazkiem");
                     break;
             }
         }

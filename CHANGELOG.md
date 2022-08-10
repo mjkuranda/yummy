@@ -1,5 +1,16 @@
 # Yummy Changelog
 
+## [2.2.1] - 2022-08-10
+
+### Added
+
+-   [mjkuranda]: Do not add existing meals
+
+### Bugfix
+
+-   Add new meal only if does not exist
+-   Handle error that occurs when the file is too large
+
 ## [2.2.0] - 2022-08-10
 
 ### Added
