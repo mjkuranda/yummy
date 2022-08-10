@@ -12,6 +12,7 @@
 -   Handle error that occurs when the file is too large
 -   Handle MongoDB schema errors
 -   Render correctly added meal image
+-   Change text link into "Powrót do strony głównej" in "/meals/add" for GET
 
 ## [2.2.0] - 2022-08-10
 
