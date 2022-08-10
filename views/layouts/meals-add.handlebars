@@ -4,7 +4,7 @@
             wyszukiwania</a>
     </div>
     <div class="meals-add-container">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div>
                 <h2>Nazwa posiłku</h2>
                 <div class="flex-center">
@@ -30,6 +30,13 @@
                 <h2>Imię autora wprowadzającego posiłek</h2>
                 <div class="flex-center">
                     <input type="text" name="author" placeholder="Wprowadź swoje imię" />
+                </div>
+            </div>
+            <div>
+                <h2>Zdjęcie posiłku</h2>
+                <div class="flex-center">
+                    <label for="image">Wybierz zdjęcie</label>
+                    <input type="file" name="image" placeholder="Wybierz zdjęcie" id="image" />
                 </div>
             </div>
             <div>
