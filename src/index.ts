@@ -9,6 +9,3 @@ const run = async (): Promise<void> => {
 
 /* Main of this application. It runs the entire application. */
 run();
-
-// TODO: Nie pozwolić by dodawano pusty meal - nie robi się o sprawdzić, czy nie ma błędu
-// TODO: /meals/add - Wróć do wyszukiwania -> Wróć do strony głównej

@@ -10,6 +10,8 @@
 
 -   Add new meal only if does not exist
 -   Handle error that occurs when the file is too large
+-   Handle MongoDB schema errors
+-   Render correctly added meal image
 
 ## [2.2.0] - 2022-08-10
 
