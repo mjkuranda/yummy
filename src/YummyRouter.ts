@@ -60,8 +60,6 @@ export class YummyRouter {
     }
 
     public async mealsAddNew(req: Request, res: Response): Promise<void> {
-        console.log("MIDD", req.body.meal);
-
         const meal = new MealModel({
             author: req.body.author,
             posted: new Date().getTime(),
@@ -71,7 +69,7 @@ export class YummyRouter {
         });
 
         if (req.file) {
-            meal.image = req.file.path.split("\\")[1];
+            meal.image = req.file.path.split("uploads\\")[1];
         }
 
         // Mapping selected icons
@@ -105,8 +103,9 @@ export class YummyRouter {
         try {
             meal = await MealModel.findOne({ title: req.body.title });
             if (meal) {
-                return res.status(400).send(req.body.title);
-                // .send("Istnieje już posiłek o takiej nazwie!");
+                return res
+                    .status(400)
+                    .send("Istnieje już posiłek o takiej nazwie!");
             }
         } catch (err: any) {
             return res.status(500).send({ message: err.message });
