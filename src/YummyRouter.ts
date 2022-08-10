@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import multer from "multer";
 import { IDatabase } from "../databases/IDatabase";
 import { MealModel } from "../databases/models/MealModel";
@@ -60,6 +60,8 @@ export class YummyRouter {
     }
 
     public async mealsAddNew(req: Request, res: Response): Promise<void> {
+        console.log("MIDD", req.body.meal);
+
         const meal = new MealModel({
             author: req.body.author,
             posted: new Date().getTime(),
@@ -90,11 +92,39 @@ export class YummyRouter {
                 icons: ingIcons,
             });
         } catch (err: any) {
-            res.status(400).send(err.message);
+            console.log(err);
+            res.status(400).send(`<code>${JSON.stringify(err)}</code>`);
         }
     }
 
-    public mealsAddNewError(err: any, req: Request, res: Response): any {
+    public async getMeal(
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<any> {
+        let meal = null;
+
+        try {
+            meal = await MealModel.find({ "details.title": req.body.title });
+            if (meal.length) {
+                return res
+                    .status(400)
+                    .send("Istnieje już posiłek o takiej nazwie!");
+            }
+        } catch (err: any) {
+            return res.status(500).send({ message: err.message });
+        }
+
+        req.body.meal = meal;
+        next();
+    }
+
+    public mealsAddNewError(
+        err: any,
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): any {
         if (err instanceof multer.MulterError) {
             switch (err.code) {
                 case "LIMIT_FILE_SIZE":
@@ -102,6 +132,8 @@ export class YummyRouter {
                     break;
             }
         }
+
+        next();
     }
 
     public error404(req: Request, res: Response): void {

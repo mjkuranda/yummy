@@ -55,6 +55,7 @@ export class YummyApp {
         this.app.post(
             "/meals/add",
             upload,
+            this.router.getMeal.bind(this.router),
             this.router.mealsAddNew.bind(this.router)
         );
         this.app.use(
