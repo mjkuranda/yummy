@@ -1,8 +1,19 @@
 # Yummy Changelog
 
+## [2.2.2] - 2022-08-11
+
+### Changed
+
+-   [mjkuranda]: Print ingredients instead of icons
+
+### Bugfix
+
+-   Fix ingredients name in /meals/add/new
+-   Fix space between checkbox and ingredient in /meals/add
+
 ## [2.2.1] - 2022-08-10
 
-### Added
+### Changed
 
 -   [mjkuranda]: Do not add existing meals
 
