@@ -50,3 +50,12 @@ main > div + div {
 .meals-add-container > form > div > div.flex-center {
     margin-top: 0.5em;
 }
+
+.category > ul > li {
+    display: flex;
+    align-items: center;
+}
+
+.category > ul > li > input {
+    margin-right: 0.5em;
+}
