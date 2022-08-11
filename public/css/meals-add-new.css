@@ -35,6 +35,10 @@ body {
     margin-left: 0.5em;
 }
 
+.new-meal-ingredients-container > ul > li > span {
+    text-transform: capitalize;
+}
+
 .new-meal-buttons {
     margin-top: 2em;
 }

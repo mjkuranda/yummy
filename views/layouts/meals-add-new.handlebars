@@ -13,15 +13,15 @@
                 <div class="flex-center"><img src="../../uploads/{{meal.image}}" alt="{{meal.title}} photo" width="256" /></div>
                 <div class="new-meal-ingredients-container">
                     <ul>
-                        {{#each icons}}
+                        {{#each ingredients as |ing|}}
                             <li class="flex-center">
                                 <img
                                         class="icon"
-                                        src="../{{src}}"
-                                        alt="'{{name}}' ingredient image"
-                                        author="{{link}}"
+                                        src="../{{ing.icon.src}}"
+                                        alt="'{{ing.icon.name}}' ingredient image"
+                                        author="{{ing.icon.link}}"
                                     ></img>
-                                <span>{{name}}</span>
+                                <span>{{ing.name}}</span>
                             </li>
                         {{/each}}
                     </ul>

@@ -2,7 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import multer from "multer";
 import { IDatabase } from "../databases/IDatabase";
 import { MealModel } from "../databases/models/MealModel";
-import { elements, icons } from "./data";
+import { Ingredient } from "./classes/ingredient";
+import { elements, icons, ingredients } from "./data";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
 
@@ -72,11 +73,13 @@ export class YummyRouter {
             meal.image = req.file.path.split("uploads\\")[1];
         }
 
-        // Mapping selected icons
-        let ingIcons = [];
-        for (const ing of meal.ingredients) {
-            ingIcons.push(icons[ing.replace("-", "_") as keyof typeof icons]);
-        }
+        // Map selected ingredients
+        let ings: Ingredient[] = [];
+        meal.ingredients.forEach((ing: String): void => {
+            ings.push(
+                ingredients[ing.replace("-", "_") as keyof typeof ingredients]
+            );
+        });
 
         try {
             const newMeal = await meal.save();
@@ -85,7 +88,7 @@ export class YummyRouter {
                 elements: elements.mealsAddNew,
                 isNotMain: res.req.url !== "/",
                 meal: newMeal,
-                icons: ingIcons,
+                ingredients: ings,
             });
         } catch (err: any) {
             console.log(err);
