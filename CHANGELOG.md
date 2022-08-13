@@ -1,5 +1,17 @@
 # Yummy Changelog
 
+## [2.5.0] - 2022-08-13
+
+-   [mjkuranda]: Render selected result
+
+### Added
+
+-   Render result with details on route /result/:id
+
+### Changed
+
+-   Text for meals without image
+
 ## [2.4.0] - 2022-08-13
 
 -   [mjkuranda]: Search meals
