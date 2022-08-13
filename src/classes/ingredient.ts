@@ -1,5 +1,5 @@
-import { Category } from "../enums/categories";
-import { Icon } from "./icon";
+import Category from "../enums/categories";
+import Icon from "./Icon";
 
 class IngredientStaticData {
     private static _lastIndex = 0;
@@ -13,7 +13,7 @@ class IngredientStaticData {
     }
 }
 
-export class Ingredient {
+export default class Ingredient {
     private _id: number;
     private _name: string;
     private _category: Category;

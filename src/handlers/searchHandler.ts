@@ -1,8 +1,7 @@
-import { Ingredient } from "../classes/ingredient";
-import { Meal } from "../classes/meal";
+import Ingredient from "../classes/Ingredient";
+import Meal from "../classes/Meal";
 import { ingredients } from "../data";
-// import { db } from "../db";
-import { Category } from "../enums/categories";
+import Category from "../enums/categories";
 
 interface ICategorized {
     category: Category;

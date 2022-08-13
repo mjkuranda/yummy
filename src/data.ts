@@ -1,7 +1,7 @@
-import { Ingredient } from "./classes/ingredient";
-import { Meal, Type } from "./classes/meal";
-import { Icon } from "./classes/icon";
-import { Category } from "./enums/categories";
+import Ingredient from "./classes/Ingredient";
+import Meal, { Type } from "./classes/Meal";
+import Icon from "./classes/Icon";
+import Category from "./enums/categories";
 
 /* Elements for subsites */
 export const elements = {

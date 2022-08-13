@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import multer from "multer";
 import { IDatabase } from "../databases/IDatabase";
-import { MealModel } from "../databases/models/MealModel";
-import { Ingredient } from "./classes/ingredient";
+import MealModel from "../databases/models/MealModel";
+import Ingredient from "./classes/Ingredient";
 import { elements, icons, ingredients } from "./data";
 
 import { categorizeIngredients } from "./handlers/searchHandler";

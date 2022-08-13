@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { IDatabase } from "./IDatabase";
-import { Meal } from "../src/classes/meal";
-import { MealModel } from "../databases/models/MealModel";
+import Meal from "../src/classes/Meal";
+import MealModel from "../databases/models/MealModel";
 
 export class MongoDB implements IDatabase {
     private isConnected: boolean;

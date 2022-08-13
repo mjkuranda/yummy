@@ -1,4 +1,4 @@
-import mongoose, { AnyArray } from "mongoose";
+import mongoose from "mongoose";
 
 interface IMealSchema {
     author: String;
@@ -39,4 +39,5 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
     image: String,
 });
 
-export const MealModel = mongoose.model<IMealSchema>("Meal", mealSchema);
+const MealModel = mongoose.model<IMealSchema>("Meal", mealSchema);
+export default MealModel;

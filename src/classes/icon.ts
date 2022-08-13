@@ -1,4 +1,4 @@
-export class Icon {
+export default class Icon {
     private _name: string;
     private _url: string;
     private _ext?: string;

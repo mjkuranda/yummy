@@ -1,4 +1,4 @@
-import { Meal } from "../src/classes/meal";
+import Meal from "../src/classes/Meal";
 
 export interface IDatabase {
     init(): Promise<void>;
