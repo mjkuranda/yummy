@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.3.0] - 2022-08-13
+
+-   [mjkuranda]: Typing Meals
+
+### Added
+
+-   Each meal has assiged its type
+
 ## [2.2.3] - 2022-08-13
 
 -   [mjkuranda]: Rename all modules starting with big letter

@@ -1,12 +1,14 @@
 import mongoose from "mongoose";
+import { Type as MealType } from "../../src/classes/Meal";
 
 interface IMealSchema {
     author: String;
+    description: String;
+    image: string;
+    ingredients: String[];
     posted: String;
     title: String;
-    description: String;
-    ingredients: String[];
-    image: string;
+    type: MealType;
 }
 
 const mealSchema = new mongoose.Schema<IMealSchema>({
@@ -14,18 +16,11 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
         type: String,
         required: true,
     },
-    posted: {
-        type: String,
-        required: true,
-    },
-    title: {
-        type: String,
-        required: true,
-    },
     description: {
         type: String,
         required: true,
     },
+    image: String,
     ingredients: {
         type: [String],
         required: true,
@@ -36,7 +31,20 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
             "Posiłek powinien zawierać chociaż jeden składnik!",
         ],
     },
-    image: String,
+    posted: {
+        type: String,
+        required: true,
+    },
+    title: {
+        type: String,
+        required: true,
+    },
+    type: {
+        type: String,
+        enum: MealType,
+        default: MealType.FOOD,
+        required: true,
+    },
 });
 
 const MealModel = mongoose.model<IMealSchema>("Meal", mealSchema);

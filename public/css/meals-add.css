@@ -23,6 +23,12 @@ textarea {
     min-height: 128px;
 }
 
+select {
+    width: 256px;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
 main > div + div {
     margin-top: 0.5em;
 }
