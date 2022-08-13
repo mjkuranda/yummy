@@ -10,6 +10,7 @@
 -   Adds meal type to schema
 -   Render type select options in /meals/add
 -   Render all types in /search
+-   Sends selected types in query
 
 ## [2.2.3] - 2022-08-13
 
