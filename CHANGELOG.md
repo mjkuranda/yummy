@@ -7,6 +7,9 @@
 ### Added
 
 -   Each meal has assiged its type
+-   Adds meal type to schema
+-   Render type select options in /meals/add
+-   Render all types in /search
 
 ## [2.2.3] - 2022-08-13
 
@@ -15,7 +18,7 @@
 ### Changed
 
 -   All classes start with big letter
--   Rename data.ts to YummyData.ts
+-   Renames data.ts to YummyData.ts
 
 ## [2.2.2] - 2022-08-11
 

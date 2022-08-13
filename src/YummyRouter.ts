@@ -72,10 +72,11 @@ export class YummyRouter {
     public async mealsAddNew(req: Request, res: Response): Promise<void> {
         const meal = new MealModel({
             author: req.body.author,
-            posted: new Date().getTime(),
-            title: req.body.title,
             description: req.body.description,
             ingredients: req.body["ings"],
+            posted: new Date().getTime(),
+            title: req.body.title,
+            type: req.body.type,
         });
 
         if (req.file) {
@@ -97,6 +98,7 @@ export class YummyRouter {
                 elements: elements.mealsAddNew,
                 isNotMain: res.req.url !== "/",
                 meal: newMeal,
+                mealType: Type[newMeal.type as keyof typeof Type],
                 ingredients: ings,
             });
         } catch (err: any) {
