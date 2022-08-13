@@ -1,12 +1,12 @@
 {
     "name": "yummy",
-    "version": "2.2.3",
+    "version": "2.4.0",
     "description": "Website that will help you the best!",
-    "main": "yummy.js",
+    "main": "index.js",
     "scripts": {
         "compile": "tsc --watch",
         "build": "npx tsc",
-        "start": "node js/yummy.js",
+        "start": "node js/index.js",
         "dev": "concurrently \"npx tsc --watch\" \"nodemon -q js/src/index.js\""
     },
     "repository": {
