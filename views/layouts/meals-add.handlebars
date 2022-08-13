@@ -29,11 +29,9 @@
                 <h2>Rodzaj posiłku</h2>
                 <div class="meal-type-container flex-center">
                     <select name="type">
-                        <option value="">x</option>
-                        <option value="">x</option>
-                        <option value="">x</option>
-                        <option value="">x</option>
-                        <option value="">x</option>
+                        {{#each mealTypes as |type|}}
+                        <option value="{{type.k}}">{{type.v}}</option>
+                        {{/each}}
                     </select>
                 </div>
             </div>

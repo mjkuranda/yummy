@@ -6,6 +6,7 @@ import Ingredient from "./classes/Ingredient";
 import { elements, icons, ingredients } from "./YummyData";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
+import { Type } from "./classes/Meal";
 
 export class YummyRouter {
     constructor(private readonly db: IDatabase) {}
@@ -49,6 +50,14 @@ export class YummyRouter {
     }
 
     public mealsAdd(req: Request, res: Response): void {
+        const mealTypesValues = Object.values(Type);
+        const mealTypes = Object.keys(Type).map((k: string, id: number) => {
+            const v = mealTypesValues[id];
+            return { k, v };
+        });
+
+        console.log("Types:", mealTypes);
+
         res.render("meals-add", {
             prefixPath: "../",
             elements: elements.mealsAdd,
@@ -57,6 +66,7 @@ export class YummyRouter {
                 icons: icons,
                 categorized: categorizeIngredients(),
             },
+            mealTypes: mealTypes,
         });
     }
 
