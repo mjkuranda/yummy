@@ -52,11 +52,10 @@ export class YummyRouter {
     public mealsAdd(req: Request, res: Response): void {
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {
-            const v = mealTypesValues[id];
+            const val = mealTypesValues[id];
+            const v = val.charAt(0).toUpperCase() + val.toLowerCase().slice(1);
             return { k, v };
         });
-
-        console.log("Types:", mealTypes);
 
         res.render("meals-add", {
             prefixPath: "../",
