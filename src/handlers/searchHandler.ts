@@ -1,6 +1,6 @@
 import Ingredient from "../classes/Ingredient";
 import Meal from "../classes/Meal";
-import { ingredients } from "../data";
+import { ingredients } from "../YummyData";
 import Category from "../enums/categories";
 
 interface ICategorized {

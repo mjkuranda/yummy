@@ -3,7 +3,7 @@ import multer from "multer";
 import { IDatabase } from "../databases/IDatabase";
 import MealModel from "../databases/models/MealModel";
 import Ingredient from "./classes/Ingredient";
-import { elements, icons, ingredients } from "./data";
+import { elements, icons, ingredients } from "./YummyData";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
 
