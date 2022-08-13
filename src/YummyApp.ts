@@ -51,6 +51,7 @@ export class YummyApp {
         this.app.get("/", this.router.main.bind(this.router));
         this.app.get("/search", this.router.search.bind(this.router));
         this.app.get("/result", this.router.result.bind(this.router));
+        this.app.get("/result/:id", this.router.resultId.bind(this.router));
         this.app.get("/meals/add", this.router.mealsAdd.bind(this.router));
         this.app.post(
             "/meals/add",

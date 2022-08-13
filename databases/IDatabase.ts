@@ -14,6 +14,11 @@ export interface IDatabase {
      */
     get(query: IQuery): Promise<[Meal] | null>;
 
+    /*
+     *   @param id: Meal id from the database
+     */
+    getWithId(id: string): Promise<Meal | null>;
+
     // add(): Promise<void>;
     // delete(): Promise<void>;
     // update(): Promise<void>;

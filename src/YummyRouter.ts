@@ -66,6 +66,31 @@ export class YummyRouter {
         });
     }
 
+    public async resultId(req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        const meal = await this.db.getWithId(id);
+
+        // Map selected ingredients
+        let ings: Ingredient[] = [];
+        meal?.ingredients.forEach((ing: String): void => {
+            ings.push(
+                ingredients[ing.replace("-", "_") as keyof typeof ingredients]
+            );
+        });
+
+        // res.json(req.params);
+        // return;
+
+        res.render("result", {
+            prefixPath: "../",
+            elements: elements.resultId,
+            isNotMain: res.req.url !== "/",
+            meal: meal,
+            ingredients: ings,
+            sourceUrl: "",
+        });
+    }
+
     public mealsAdd(req: Request, res: Response): void {
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {

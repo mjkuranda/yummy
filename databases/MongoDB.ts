@@ -45,4 +45,8 @@ export class MongoDB implements IDatabase {
 
         return meals;
     }
+
+    public async getWithId(id: string): Promise<Meal | null> {
+        return (await MealModel.findById(id)) as Meal;
+    }
 }

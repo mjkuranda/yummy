@@ -25,6 +25,14 @@ export const elements = {
         ],
         scripts: [],
     },
+    resultId: {
+        links: [
+            { link: "header", prefix: "../" },
+            { link: "result", prefix: "../" },
+            { link: "result-media", prefix: "../" },
+        ],
+        scripts: [],
+    },
     mealsAdd: {
         links: [
             { link: "header", prefix: "../" },
@@ -207,9 +215,3 @@ export const ingredients = {
     ),
     zucchini: new Ingredient(Category.VEGETABLES, icons.zucchini, "cukinia"),
 };
-
-/* Meals */
-let meals: Meal[] = [
-    new Meal("pomidorowa", Type.SOUP, [ingredients.carrot, ingredients.carrot]),
-    new Meal("klopsy", Type.RAW_SALAD, [ingredients.celery]),
-];
