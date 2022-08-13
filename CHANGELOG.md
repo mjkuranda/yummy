@@ -1,5 +1,14 @@
 # Yummy Changelog
 
+## [2.4.0] - 2022-08-13
+
+-   [mjkuranda]: Search meals
+
+### Added
+
+-   Fetch all matching documents from the database
+-   Render them correctly in /search
+
 ## [2.3.0] - 2022-08-13
 
 -   [mjkuranda]: Typing Meals
