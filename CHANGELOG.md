@@ -1,5 +1,14 @@
 # Yummy Changelog
 
+## [2.2.3] - 2022-08-13
+
+-   [mjkuranda]: Rename all modules starting with big letter
+
+### Changed
+
+-   All classes start with big letter
+-   Rename data.ts to YummyData.ts
+
 ## [2.2.2] - 2022-08-11
 
 ### Changed
