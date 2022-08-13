@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import multer from "multer";
-import { IDatabase } from "../databases/IDatabase";
+import { IDatabase, IQuery } from "../databases/IDatabase";
 import MealModel from "../databases/models/MealModel";
 import Ingredient from "./classes/Ingredient";
 import { elements, icons, ingredients } from "./YummyData";
@@ -26,7 +26,11 @@ export class YummyRouter {
     public async search(req: Request, res: Response): Promise<void> {
         const ings = req.query.ings as string[];
         const types = req.query.types as string[];
-        const meals = await this.db.get(ings);
+        const query: IQuery = {
+            ings: ings,
+            types: types,
+        };
+        const meals = await this.db.get(query);
 
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {
@@ -51,6 +55,7 @@ export class YummyRouter {
                 },
             },
             mealTypes: mealTypes,
+            meals: meals,
         });
     }
 

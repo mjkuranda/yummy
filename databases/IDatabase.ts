@@ -1,13 +1,18 @@
 import Meal from "../src/classes/Meal";
 
+export interface IQuery {
+    ings: string[];
+    types: string[];
+}
+
 export interface IDatabase {
     init(): Promise<void>;
     isInitialized(): boolean;
 
     /*
-     *   @param ings: Array that contains ingredients' names
+     *   @param query: ObjectArray that contains ingredients' names
      */
-    get(ings: string[]): Promise<[Meal] | null>;
+    get(query: IQuery): Promise<[Meal] | null>;
 
     // add(): Promise<void>;
     // delete(): Promise<void>;

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IDatabase } from "./IDatabase";
+import { IDatabase, IQuery } from "./IDatabase";
 import Meal from "../src/classes/Meal";
 import MealModel from "../databases/models/MealModel";
 
@@ -27,10 +27,21 @@ export class MongoDB implements IDatabase {
         return this.isConnected;
     }
 
-    public async get(ings: string[]): Promise<[Meal]> {
-        const meals = (await MealModel.find({
-            ingredients: { $in: ings },
-        })) as [Meal];
+    public async get(query: IQuery): Promise<[Meal]> {
+        const queryObject: { ingredients: any; types: any } = {
+            ingredients: undefined,
+            types: undefined,
+        };
+
+        if (query.ings) {
+            queryObject.ingredients = { $in: query.ings };
+        }
+
+        if (query.types) {
+            queryObject.types = { $in: query.types };
+        }
+
+        const meals = (await MealModel.find(queryObject)) as [Meal];
 
         return meals;
     }

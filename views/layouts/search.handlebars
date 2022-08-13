@@ -42,6 +42,22 @@
 
 <main>
     <section class="result-box">
+        {{#each meals as |meal| }}
+        <div class="result-container flex-center">
+            <div class="result-image">
+                <img src="uploads/{{meal.image}}" alt="img-title" />
+            </div>
+            <div class="result-label">
+                <div class="result-description">
+                    <div class="result-title">{{meal.title}}</div>
+                    <div class="result-text">{{meal.description}}</div>
+                </div>
+                <div class="result-button flex-center">
+                    <button>Zobacz</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
         <div class="result-container flex-center">
             <div class="result-image">
                 <img src="img/berries.jpg" alt="img-title" />

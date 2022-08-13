@@ -185,8 +185,6 @@ form {
 
     width: var(--hd);
     height: var(--htt);
-    font-size: 1;
-    /* font-weight: 700; */
     padding: calc(var(--spc) / 2);
 }
 .result-text {
