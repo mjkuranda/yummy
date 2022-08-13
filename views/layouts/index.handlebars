@@ -29,6 +29,10 @@
         {{#each elements.scripts}}
             <script defer src="{{prefix}}js/{{link}}.js"></script>
         {{/each}}
+
+        <script>
+            function move(url) { window.location.assign(url); }
+        </script>
     </head>
     <body>
         {{#if isNotMain}}

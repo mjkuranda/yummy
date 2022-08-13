@@ -7,6 +7,7 @@
 ### Added
 
 -   All buttons redirect to the indicated address
+-   Search-Result correct redirecting with source
 
 ## [2.5.0] - 2022-08-13
 

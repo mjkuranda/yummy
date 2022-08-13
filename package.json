@@ -6,7 +6,7 @@
     "scripts": {
         "compile": "tsc --watch",
         "build": "npx tsc",
-        "start": "node js/index.js",
+        "start": "node js/src/index.js",
         "dev": "concurrently \"npx tsc --watch\" \"nodemon -q js/src/index.js\""
     },
     "repository": {

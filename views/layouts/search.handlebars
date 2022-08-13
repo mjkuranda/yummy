@@ -53,7 +53,8 @@
                     <div class="result-text">{{meal.description}}</div>
                 </div>
                 <div class="result-button flex-center">
-                    <button>Zobacz</button>
+                    {{!-- <button onClick="move('result/{{meal._id}}?source={{sourceUrl}}')">Zobacz</button> --}}
+                    <button onClick="move('result/{{meal._id}}?{{sourceUrl}}')">Zobacz</button>
                 </div>
             </div>
         </div>

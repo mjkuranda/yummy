@@ -53,6 +53,9 @@ export class YummyRouter {
                 tryToCheckType(typeKey: string) {
                     return types?.includes(typeKey) ? "checked" : "";
                 },
+                sourceUrl() {
+                    return res.req.url.split("/search?")[1];
+                },
             },
             mealTypes: mealTypes,
             meals: meals,
@@ -84,7 +87,7 @@ export class YummyRouter {
             isNotMain: res.req.url !== "/",
             meal: meal,
             ingredients: ings,
-            sourceUrl: req.body.sourceUrl ?? "",
+            sourceUrl: `/search?${res.req.url.split("?")[1] ?? ""}`,
         });
     }
 
