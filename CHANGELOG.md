@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.6.0] - 2022-08-13
+
+-   [mjkuranda]: Navigation between subsites
+
+### Added
+
+-   All buttons redirect to the indicated address
+
 ## [2.5.0] - 2022-08-13
 
 -   [mjkuranda]: Render selected result
