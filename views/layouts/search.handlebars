@@ -26,14 +26,12 @@
         </div>
         <div>
             <h2>Typy</h2>
-            <div class="category-container">
-                <div class="category">
-                    <h3>Kategoria</h3>
-                    <ul>
-                        <li><input type="checkbox" /><label>Marchew</label></li>
-                        <li><input type="checkbox" /><label>Marchew</label></li>
-                    </ul>
-                </div>
+            <div class="meal-types-container">
+                <ul>
+                    {{#each mealTypes as |type|}}
+                    <li><input type="checkbox" name="types[]" data-type-k="{{type.k}}" data-type-v="{{type.v}}" value="{{type.k}}" {{ tryToCheckType type.k }} /><label>{{type.v}}</label></li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
         <div class="flex-center">

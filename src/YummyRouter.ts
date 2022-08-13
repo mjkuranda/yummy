@@ -25,7 +25,15 @@ export class YummyRouter {
 
     public async search(req: Request, res: Response): Promise<void> {
         const ings = req.query.ings as string[];
+        const types = req.query.types as string[];
         const meals = await this.db.get(ings);
+
+        const mealTypesValues = Object.values(Type);
+        const mealTypes = Object.keys(Type).map((k: string, id: number) => {
+            const val = mealTypesValues[id];
+            const v = val.charAt(0).toUpperCase() + val.toLowerCase().slice(1);
+            return { k, v };
+        });
 
         res.render("search", {
             elements: elements.search,
@@ -38,7 +46,11 @@ export class YummyRouter {
                 tryToCheck(ingredientKey: string) {
                     return ings?.includes(ingredientKey) ? "checked" : "";
                 },
+                tryToCheckType(typeKey: string) {
+                    return types?.includes(typeKey) ? "checked" : "";
+                },
             },
+            mealTypes: mealTypes,
         });
     }
 
