@@ -1,5 +1,14 @@
 # Yummy Changelog
 
+## [2.6.1] - 2022-08-13
+
+-   [mjkuranda]: Fix links in index file
+
+### Fixed
+
+-   Add links for links in index file.
+-   Redirects to search subsite containg different queries.
+
 ## [2.6.0] - 2022-08-13
 
 -   [mjkuranda]: Navigation between subsites
