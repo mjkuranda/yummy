@@ -47,6 +47,9 @@ button {
     border-radius: 1em;
     padding: 0.5em 2em;
 
+    align-items: center;
+    justify-content: center;
+
     box-shadow: rgb(0 0 0 / 0) 0 0 5px 2px;
     transition: 300ms;
 }
@@ -59,6 +62,10 @@ button:hover {
 
     box-shadow: rgb(0 0 0 / 23%) 0 0 5px 2px;
     transition: 300ms;
+}
+button:disabled {
+    opacity: 0.618;
+    cursor: not-allowed;
 }
 
 a {

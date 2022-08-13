@@ -8,6 +8,12 @@
 
 -   All buttons redirect to the indicated address
 -   Search-Result correct redirecting with source
+-   Redirect correctly all links in index
+
+### Fixed
+
+-   Center text inside button
+-   Disable `Propozycja na dziś` button
 
 ## [2.5.0] - 2022-08-13
 

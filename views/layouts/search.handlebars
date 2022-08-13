@@ -1,6 +1,6 @@
 <section id="filters">
     <form action="" method="get">
-        <div>
+        <div id="ingredients-container">
             <h2>Składniki</h2>
             <div class="category-container">
                 {{#each filter.categorized as |cat|}}
@@ -53,7 +53,6 @@
                     <div class="result-text">{{meal.description}}</div>
                 </div>
                 <div class="result-button flex-center">
-                    {{!-- <button onClick="move('result/{{meal._id}}?source={{sourceUrl}}')">Zobacz</button> --}}
                     <button onClick="move('result/{{meal._id}}?{{sourceUrl}}')">Zobacz</button>
                 </div>
             </div>

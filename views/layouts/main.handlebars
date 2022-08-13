@@ -7,9 +7,11 @@
             <div id="header-container">
                 <h1 class="flex-center">Yummy!</h1>
                 <div class="flex-center">
-                    <button>Wyszukaj po produktach</button>
-                    <button>Propozycja na dziś</button>
-                    <button>Wyszukaj z bazy</button>
+                    <button
+                        onClick="move('/search#ingredients-container')"
+                    >Wyszukaj po produktach</button>
+                    <button disabled>Propozycja na dziś</button>
+                    <button onClick="move('/search')">Wyszukaj z bazy</button>
                 </div>
             </div>
         </div>
