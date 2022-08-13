@@ -78,16 +78,13 @@ export class YummyRouter {
             );
         });
 
-        // res.json(req.params);
-        // return;
-
         res.render("result", {
             prefixPath: "../",
             elements: elements.resultId,
             isNotMain: res.req.url !== "/",
             meal: meal,
             ingredients: ings,
-            sourceUrl: "",
+            sourceUrl: req.body.sourceUrl ?? "",
         });
     }
 
