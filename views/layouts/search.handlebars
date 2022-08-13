@@ -35,17 +35,17 @@
             </div>
         </div>
         <div class="flex-center">
-            <button type="submit">Wyszukaj</button>
+            <button type="submit" onClick="setHash('results')">Wyszukaj</button>
         </div>
     </form>
 </section>
 
-<main>
+<main id="results">
     <section class="result-box">
         {{#each meals as |meal| }}
         <div class="result-container flex-center">
             <div class="result-image">
-                <img src="uploads/{{meal.image}}" alt="img-title" />
+                <img src="uploads/{{meal.image}}" alt="Zdjęcie posiłku o nazwie {{meal.title}}" />
             </div>
             <div class="result-label">
                 <div class="result-description">
@@ -53,7 +53,7 @@
                     <div class="result-text">{{meal.description}}</div>
                 </div>
                 <div class="result-button flex-center">
-                    <button onClick="move('result/{{meal._id}}?{{sourceUrl}}')">Zobacz</button>
+                    <button onClick="move('/result/{{meal._id}}?{{sourceUrl}}')">Zobacz</button>
                 </div>
             </div>
         </div>

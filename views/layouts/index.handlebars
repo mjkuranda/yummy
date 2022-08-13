@@ -31,7 +31,11 @@
         {{/each}}
 
         <script>
-            function move(url) { window.location.assign(url); }
+            function move(url) { window.location.assign(url); } function
+            setHash(loc) { if(loc === '' || !loc) history.replaceState({},
+            document.title, window.location.href.split('#')[0]);
+            history.replaceState({}, document.title,
+            `${window.location.href.split('#')[0]}#${loc}`); }
         </script>
     </head>
     <body>
@@ -48,7 +52,7 @@
                     </div>
                     <nav class="flex-left">
                         <a href="/">Strona główna</a>
-                        <a href="/about">O stronie</a>
+                        <a href="/#description">O stronie</a>
                     </nav>
                 </div>
             </header>
