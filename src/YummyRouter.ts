@@ -9,16 +9,16 @@ import { Type } from "./classes/Meal";
 
 import multer from "multer";
 import { fileStorage, fileFilter } from "./handlers/multer";
+import { FileSize } from "./enums/constants";
 
 export class YummyRouter {
     private router: Router;
 
     constructor(private readonly app: Express, private readonly db: IDatabase) {
-        // Multer
         const upload = multer({
             storage: fileStorage,
             fileFilter: fileFilter,
-            limits: { fileSize: 1024 * 1024 * 10 }, // 10 MB
+            limits: { fileSize: FileSize.HALF_MB },
         }).single("image");
 
         this.router = Router();

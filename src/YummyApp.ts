@@ -42,7 +42,6 @@ export class YummyApp {
 
         // Run the app
         this.port = process.env.PORT || 3000;
-
         this.app.listen(this.port, () =>
             console.log(
                 `Express has been run at the address:

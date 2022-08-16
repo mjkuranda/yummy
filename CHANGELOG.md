@@ -7,6 +7,11 @@
 ### Changed
 
 -   Action on icons and label text can select/unselect option in `/search`
+-   Routes defined in YummyRouter file.
+
+### Added
+
+-   FileSize constants (0.1 MB, 0.5 MB, 1 MB, 10 MB)
 
 ## [2.6.2] - 2022-08-16
 
