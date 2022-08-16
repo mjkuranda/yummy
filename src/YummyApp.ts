@@ -5,8 +5,6 @@ import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access
 import bodyParser from "body-parser";
 import { YummyRouter } from "./YummyRouter";
 import { IDatabase } from "../databases/IDatabase";
-import multer from "multer";
-import { fileStorage, fileFilter } from "./handlers/multer";
 
 export class YummyApp {
     private app: Express;
@@ -28,13 +26,6 @@ export class YummyApp {
             },
         });
 
-        // Multer
-        const upload = multer({
-            storage: fileStorage,
-            fileFilter: fileFilter,
-            limits: { fileSize: 1024 * 1024 * 10 }, // 10 MB
-        }).single("image");
-
         // BodyParser
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());
@@ -46,26 +37,8 @@ export class YummyApp {
         this.app.use(express.static(__dirname + "\\..\\..\\public\\"));
 
         // Init router
-        this.router = new YummyRouter(this.db);
-        this.app.get("/dev", this.router.dev.bind(this.router));
-        this.app.get("/", this.router.main.bind(this.router));
-        this.app.get("/search", this.router.search.bind(this.router));
-        this.app.get("/result", this.router.result.bind(this.router));
-        this.app.get("/result/:id", this.router.resultId.bind(this.router));
-        this.app.get("/meals/add", this.router.mealsAdd.bind(this.router));
-        this.app.post(
-            "/meals/add",
-            upload,
-            this.router.mealsAddNewError.bind(this.router),
-            this.router.getMeal.bind(this.router),
-            this.router.mealsAddNew.bind(this.router)
-        );
-        this.app.use(
-            "/meals/add",
-            this.router.mealsAddNewError.bind(this.router)
-        );
-        this.app.use(this.router.error404.bind(this.router));
-        this.app.use(this.router.error500.bind(this.router));
+        this.router = new YummyRouter(this.app, this.db);
+        this.app.use(this.router.getRouter());
 
         // Run the app
         this.port = process.env.PORT || 3000;

@@ -1,5 +1,4 @@
-import { Request, Response, NextFunction } from "express";
-import multer from "multer";
+import { Express, Router, Request, Response, NextFunction } from "express";
 import { IDatabase, IQuery } from "../databases/IDatabase";
 import MealModel from "../databases/models/MealModel";
 import Ingredient from "./classes/Ingredient";
@@ -8,22 +7,49 @@ import { elements, icons, ingredients } from "./YummyData";
 import { categorizeIngredients } from "./handlers/searchHandler";
 import { Type } from "./classes/Meal";
 
-export class YummyRouter {
-    constructor(private readonly db: IDatabase) {}
+import multer from "multer";
+import { fileStorage, fileFilter } from "./handlers/multer";
 
-    public dev(req: Request, res: Response): void {
-        console.log("test dev func");
-        res.send("Test dev func");
+export class YummyRouter {
+    private router: Router;
+
+    constructor(private readonly app: Express, private readonly db: IDatabase) {
+        // Multer
+        const upload = multer({
+            storage: fileStorage,
+            fileFilter: fileFilter,
+            limits: { fileSize: 1024 * 1024 * 10 }, // 10 MB
+        }).single("image");
+
+        this.router = Router();
+        this.router.get("/", this.main.bind(this));
+        this.router.get("/search", this.search.bind(this));
+        this.router.get("/result/:id", this.resultId.bind(this));
+        this.router.get("/meals/add", this.mealsAdd.bind(this));
+        this.router.post(
+            "/meals/add",
+            upload,
+            this.mealsAddNewError.bind(this),
+            this.getMeal.bind(this),
+            this.mealsAddNew.bind(this)
+        );
+        this.router.use("/meals/add", this.mealsAddNewError.bind(this));
+        this.router.use(this.error404.bind(this));
+        this.router.use(this.error500.bind(this));
     }
 
-    public main(req: Request, res: Response): void {
+    public getRouter(): Router {
+        return this.router;
+    }
+
+    private main(req: Request, res: Response): void {
         res.render("main", {
             elements: elements.main,
             isNotMain: res.req.url !== "/",
         });
     }
 
-    public async search(req: Request, res: Response): Promise<void> {
+    private async search(req: Request, res: Response): Promise<void> {
         const ings = req.query.ings as string[];
         const types = req.query.types as string[];
         const query: IQuery = {
@@ -62,14 +88,14 @@ export class YummyRouter {
         });
     }
 
-    public result(req: Request, res: Response): void {
+    private result(req: Request, res: Response): void {
         res.render("result", {
             elements: elements.result,
             isNotMain: res.req.url !== "/",
         });
     }
 
-    public async resultId(req: Request, res: Response): Promise<void> {
+    private async resultId(req: Request, res: Response): Promise<void> {
         const id = req.params.id;
         const meal = await this.db.getWithId(id);
 
@@ -91,7 +117,7 @@ export class YummyRouter {
         });
     }
 
-    public mealsAdd(req: Request, res: Response): void {
+    private mealsAdd(req: Request, res: Response): void {
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {
             const val = mealTypesValues[id];
@@ -111,7 +137,7 @@ export class YummyRouter {
         });
     }
 
-    public async mealsAddNew(req: Request, res: Response): Promise<void> {
+    private async mealsAddNew(req: Request, res: Response): Promise<void> {
         const meal = new MealModel({
             author: req.body.author,
             description: req.body.description,
@@ -149,7 +175,7 @@ export class YummyRouter {
         }
     }
 
-    public async getMeal(
+    private async getMeal(
         req: Request,
         res: Response,
         next: NextFunction
@@ -171,7 +197,7 @@ export class YummyRouter {
         next();
     }
 
-    public mealsAddNewError(
+    private mealsAddNewError(
         err: any,
         req: Request,
         res: Response,
@@ -191,12 +217,12 @@ export class YummyRouter {
         next();
     }
 
-    public error404(req: Request, res: Response): void {
+    private error404(req: Request, res: Response): void {
         res.status(404);
         res.render("404");
     }
 
-    public error500(err: any, res: Response): void {
+    private error500(err: any, res: Response): void {
         res.status(500);
         res.render("500");
         console.error(err.message);
