@@ -47,8 +47,11 @@ form {
 }
 #filters div ul > li > input[type="checkbox"] + label,
 #filters div ul > li > input[type="checkbox"] + img,
-#filters div ul > li > img + label {
-    margin-left: 0.5em;
+#filters div ul > li > label > img,
+#filters div ul > li > label > p {
+    margin-left: 0.2em;
+    cursor: pointer;
+    user-select: none;
 }
 
 /* Below 1000px */

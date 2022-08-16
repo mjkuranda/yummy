@@ -9,14 +9,24 @@
                         <ul>
                             {{#each this.ingredients as |ing|}}
                                 <li>
-                                    <input type="checkbox" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" {{ tryToCheck ing.icon.name}} />
-                                    <img
+                                    <input type="checkbox" id="{{ing.icon.name}}" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" {{ tryToCheck ing.icon.name}} />
+                                    {{!-- <img
                                         class="icon"
                                         src="{{ing.icon.src}}"
                                         alt="'{{ing.icon.name}}' ingredient image"
                                         author="{{ing.icon.link}}"
                                     ></img>
-                                    <label>{{ing.name}}</label>
+                                    <label for="{{ing.icon.name}}">{{ing.name}}</label> --}}
+
+                                    <label for="{{ing.icon.name}}" class="flex-center">
+                                        <img
+                                            class="icon"
+                                            src="{{ing.icon.src}}"
+                                            alt="'{{ing.icon.name}}' ingredient image"
+                                            author="{{ing.icon.link}}"
+                                        ></img>
+                                        <p>{{ing.name}}</p>
+                                    </label>
                                 </li>
                             {{/each}}
                         </ul>
@@ -29,7 +39,7 @@
             <div class="meal-types-container">
                 <ul>
                     {{#each mealTypes as |type|}}
-                    <li><input type="checkbox" name="types[]" data-type-k="{{type.k}}" data-type-v="{{type.v}}" value="{{type.k}}" {{ tryToCheckType type.k }} /><label>{{type.v}}</label></li>
+                    <li><input type="checkbox" id="{{type.k}}" name="types[]" data-type-k="{{type.k}}" data-type-v="{{type.v}}" value="{{type.k}}" {{ tryToCheckType type.k }} /><label for="{{type.k}}"><p>{{type.v}}</p></label></li>
                     {{/each}}
                 </ul>
             </div>

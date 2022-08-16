@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.6.3] - 2022-08-16
+
+-   [mjkuranda]: New routing structure
+
+### Changed
+
+-   Action on icons and label text can select/unselect option in `/search`
+
 ## [2.6.2] - 2022-08-16
 
 -   [mjkuranda]: Fix other links
