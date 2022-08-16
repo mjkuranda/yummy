@@ -1,5 +1,21 @@
 # Yummy Changelog
 
+## [2.6.2] - 2022-08-16
+
+-   [mjkuranda]: Fix other links
+
+### Fixed
+
+-   Fixs two buttons in `/meals/add` (summary of new meal - post action)
+
+### Changed
+
+-   Top link changes text to `Powrót do wyszukiwania` and refers to `/search?` address.
+
+### Added
+
+-   Adds new button on the bottom of `/search` as `Dodaj`. It refers to `/meals/add` action.
+
 ## [2.6.1] - 2022-08-13
 
 -   [mjkuranda]: Fix links in index file

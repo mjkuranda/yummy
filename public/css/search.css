@@ -196,3 +196,11 @@ form {
     /* font-weight: 700; */
     padding: calc(var(--spc) / 2);
 }
+
+/* --- --- --- --- --- --- */
+#adder {
+    margin: 2em 0;
+}
+#adder > div:nth-child(1) {
+    margin-bottom: 0.5em;
+}
