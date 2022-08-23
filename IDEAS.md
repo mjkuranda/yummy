@@ -7,10 +7,11 @@
 -   6 meals in `/search` should be removed in a near future.
 -   Edition of existing meals - you can edit anything you want apart from the title - because it occurs as the name.
 -   Each result has a property called `relevance` - could be measured as a percentage. The found results should be sorted according to the this property.
+-   Better handling MongoDB errors - types of errors and their communicates.
 
 ## Bugs
 
--   When you try to add a new meal and its image is too large, then you receive a message about failure but the meal wil be added.
+-
 
 ## Added
 
@@ -18,4 +19,4 @@
 
 ## Fixed
 
--   (vNaN): NaN
+-   (v2.6.3): When you try to add a new meal and its image is too large, then you receive a message about failure but the meal wil be added.

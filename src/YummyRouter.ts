@@ -212,6 +212,8 @@ export class YummyRouter {
                     res.send("Plik musi być obrazkiem");
                     break;
             }
+
+            return;
         }
 
         next();
