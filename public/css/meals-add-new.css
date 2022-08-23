@@ -31,8 +31,8 @@ body {
     margin-left: 0.5em;
 }
 
-.new-meal-ingredients-container > ul > li > i + span {
-    margin-left: 0.5em;
+.new-meal-ingredients-container > ul > li > img + span {
+    margin-left: 0.2em;
 }
 
 .new-meal-ingredients-container > ul > li > span {

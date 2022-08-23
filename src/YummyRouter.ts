@@ -85,13 +85,7 @@ export class YummyRouter {
             },
             mealTypes: mealTypes,
             meals: meals,
-        });
-    }
-
-    private result(req: Request, res: Response): void {
-        res.render("result", {
-            elements: elements.result,
-            isNotMain: res.req.url !== "/",
+            noImage: icons.noImage,
         });
     }
 
@@ -114,6 +108,7 @@ export class YummyRouter {
             meal: meal,
             ingredients: ings,
             sourceUrl: `/search?${res.req.url.split("?")[1] ?? ""}`,
+            noImage: icons.noImage,
         });
     }
 
@@ -168,6 +163,7 @@ export class YummyRouter {
                 meal: newMeal,
                 mealType: Type[newMeal.type as keyof typeof Type],
                 ingredients: ings,
+                noImage: icons.noImage,
             });
         } catch (err: any) {
             console.log(err);

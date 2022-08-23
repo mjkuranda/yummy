@@ -4,7 +4,11 @@
             ></i>Wróć do wyszukiwania</a></div>
     <div class="result-container">
         <div class="result-image"><img
-                src="{{prefixPath}}uploads/{{meal.image}}"
+                {{#if meal.image}}
+                src="{{#if meal.image}}{{prefixPath}}uploads/{{meal.image}}{{else}}{{/if}}"
+                {{else}}
+                src="{{prefixPath}}icons/no-image.png"
+                {{/if}}
                 alt="Zdjęcie posiłku o nazwie {{meal.title}}"
             /></div>
         <div class="result-details">

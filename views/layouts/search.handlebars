@@ -55,7 +55,11 @@
         {{#each meals as |meal| }}
         <div class="result-container flex-center">
             <div class="result-image">
+                {{#if meal.image}}
                 <img src="uploads/{{meal.image}}" alt="Zdjęcie posiłku o nazwie {{meal.title}}" />
+                {{else}}
+                <img src="icons/no-image.png" alt="Brak zdjęcia posiłku o nazwie {{meal.title}}" />
+                {{/if}}
             </div>
             <div class="result-label">
                 <div class="result-description">
@@ -68,90 +72,6 @@
             </div>
         </div>
         {{/each}}
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
-        <div class="result-container flex-center">
-            <div class="result-image">
-                <img src="img/berries.jpg" alt="img-title" />
-            </div>
-            <div class="result-label">
-                <div class="result-description">
-                    <div class="result-title">Tytuł</div>
-                    <div class="result-text">Opis tego czegoś</div>
-                </div>
-                <div class="result-button flex-center">
-                    <button>Zobacz</button>
-                </div>
-            </div>
-        </div>
     </section>
     <section id="adder">
         <div class="flex-center"><p>Brakuje szukanego posiłku? Dodaj go!</p></div>

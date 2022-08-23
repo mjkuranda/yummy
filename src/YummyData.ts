@@ -61,6 +61,12 @@ export const icons = {
         undefined,
         "https://icons8.com/icon/13296/list-view"
     ),
+    noImage: new Icon(
+        "no-image",
+        "",
+        undefined,
+        "https://icons8.com/icon/1G2BW7-tQJJJ/no-image"
+    ),
     // Food - berries
     blueberry: new Icon(
         "blueberry",

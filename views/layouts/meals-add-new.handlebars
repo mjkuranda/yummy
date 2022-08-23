@@ -11,7 +11,13 @@
                 <div><h3>{{meal.title}}</h3></div>
                 <div><p>{{meal.description}}</p></div>
                 <div><p>{{mealType}}</p></div>
-                <div class="flex-center"><img src="../../uploads/{{meal.image}}" alt="{{meal.title}} photo" width="256" /></div>
+                <div class="flex-center">
+                    {{#if meal.image}}
+                    <img src="../../uploads/{{meal.image}}" alt="{{meal.title}} photo" width="256" />
+                    {{else}}
+                    <img src="../../icons/no-image.png" alt="{{meal.title}} no photo" width="256" />
+                    {{/if}}
+                </div>
                 <div class="new-meal-ingredients-container">
                     <ul>
                         {{#each ingredients as |ing|}}
