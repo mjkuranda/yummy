@@ -1,5 +1,18 @@
 # Yummy Changelog
 
+## [2.7.0] - 2022-08-23
+
+-   [mjkuranda]: Meals without image render no image photo.
+
+### Added
+
+-   New sections in `README.md` file such us: `Using`, `Yummy for developers`.
+-   Improved `README.md` file.
+
+### Changed
+
+-   No image photo for meals without image.
+
 ## [2.6.3] - 2022-08-16
 
 -   [mjkuranda]: New routing structure

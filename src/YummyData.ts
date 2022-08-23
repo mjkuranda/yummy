@@ -1,5 +1,4 @@
 import Ingredient from "./classes/Ingredient";
-import Meal, { Type } from "./classes/Meal";
 import Icon from "./classes/Icon";
 import Category from "./enums/categories";
 
