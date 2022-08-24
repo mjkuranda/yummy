@@ -1,0 +1,34 @@
+body {
+    height: 100vh;
+}
+
+main {
+    background-color: var(--orange-yellow-crayola);
+    padding: 2em;
+}
+
+main > h1 {
+    text-align: center;
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: var(--honey-yellow);
+    text-shadow: 2px 2px 4px black;
+}
+
+#error-messages-container {
+    background-color: var(--honey-yellow);
+    padding: 1em;
+    border-radius: 0.5em;
+    margin-top: 2em;
+}
+#error-messages-container > ul {
+    padding: 0.5em;
+}
+
+.error-message {
+    text-shadow: 0 0 1px black;
+}
+
+#error-messages-nav {
+    margin-top: 2em;
+}

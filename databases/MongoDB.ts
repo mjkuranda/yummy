@@ -3,7 +3,7 @@ import { IDatabase, IQuery } from "./IDatabase";
 import Meal from "../src/classes/Meal";
 import MealModel from "../databases/models/MealModel";
 
-export class MongoDB implements IDatabase {
+class MongoDB implements IDatabase {
     private isConnected: boolean;
 
     constructor() {
@@ -50,3 +50,5 @@ export class MongoDB implements IDatabase {
         return (await MealModel.findById(id)) as Meal;
     }
 }
+
+export default MongoDB;

@@ -50,6 +50,14 @@ export const elements = {
         scripts: [],
         prefixPath: "../",
     },
+    mealsAddNewError: {
+        links: [
+            { link: "header", prefix: "../" },
+            { link: "meals-add-new-error", prefix: "../" },
+        ],
+        scripts: [],
+        prefixPath: "../",
+    },
 };
 
 /* Icons */

@@ -11,7 +11,7 @@ import multer from "multer";
 import { fileStorage, fileFilter } from "./handlers/multer";
 import { FileSize } from "./enums/constants";
 
-export class YummyRouter {
+class YummyRouter {
     private router: Router;
 
     constructor(private readonly app: Express, private readonly db: IDatabase) {
@@ -166,15 +166,16 @@ export class YummyRouter {
                 noImage: icons.noImage,
             });
         } catch (err: any) {
-            console.log(err);
-
             const messages = Object.entries(err.errors).map((error: any) => {
                 return error[1].message;
             });
 
-            res.status(400).send(`
-                <code>${JSON.stringify(messages)}</code>
-            `);
+            res.status(400).render("meals-add-new-error", {
+                prefixPath: "../",
+                elements: elements.mealsAddNewError,
+                isNotMain: res.req.url !== "/",
+                messages: messages,
+            });
         }
     }
 
@@ -233,3 +234,5 @@ export class YummyRouter {
         console.error(err.message);
     }
 }
+
+export default YummyRouter;

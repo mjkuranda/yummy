@@ -1,0 +1,13 @@
+<main>
+    <h1>Błąd 400</h1>
+    <div id="error-messages-container">
+        <ul>
+            {{#each messages as |mess|}}
+                <li class="error-message">{{mess}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div id="error-messages-nav" class="flex-center">
+        <button onClick="move('/meals/add')">Spróbuj ponownie</button>
+    </div>
+</main>

@@ -1,5 +1,5 @@
-import { MongoDB } from "../databases/MongoDB";
-import { YummyApp } from "./YummyApp";
+import MongoDB from "../databases/MongoDB";
+import YummyApp from "./YummyApp";
 
 const run = async (): Promise<void> => {
     const db = new MongoDB();

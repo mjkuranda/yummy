@@ -3,10 +3,10 @@ import handlebars from "handlebars";
 import { engine } from "express-handlebars";
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import bodyParser from "body-parser";
-import { YummyRouter } from "./YummyRouter";
+import YummyRouter from "./YummyRouter";
 import { IDatabase } from "../databases/IDatabase";
 
-export class YummyApp {
+class YummyApp {
     private app: Express;
     private hbs: any;
     private port: string | number;
@@ -51,3 +51,5 @@ export class YummyApp {
         );
     }
 }
+
+export default YummyApp;
