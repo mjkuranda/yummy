@@ -134,12 +134,12 @@ export class YummyRouter {
 
     private async mealsAddNew(req: Request, res: Response): Promise<void> {
         const meal = new MealModel({
-            author: req.body.author,
-            description: req.body.description,
+            author: req.body.author ?? "",
+            description: req.body.description ?? "",
             ingredients: req.body["ings"],
             posted: new Date().getTime(),
-            title: req.body.title,
-            type: req.body.type,
+            title: req.body.title ?? "",
+            type: req.body.type ?? "",
         });
 
         if (req.file) {
@@ -167,7 +167,14 @@ export class YummyRouter {
             });
         } catch (err: any) {
             console.log(err);
-            res.status(400).send(`<code>${JSON.stringify(err)}</code>`);
+
+            const messages = Object.entries(err.errors).map((error: any) => {
+                return error[1].message;
+            });
+
+            res.status(400).send(`
+                <code>${JSON.stringify(messages)}</code>
+            `);
         }
     }
 

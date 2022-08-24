@@ -13,11 +13,24 @@ interface IMealSchema {
 const mealSchema = new mongoose.Schema<IMealSchema>({
     author: {
         type: String,
-        required: true,
+        required: [true, "Wymagany autor posiłku"],
+        validate: [
+            function (val: string) {
+                return val.length >= 4;
+            },
+            "Zbyt krótka nazwa autora (min. 4 znaki)",
+        ],
     },
     description: {
         type: String,
-        required: true,
+        required: [true, "Wymagany opis posiłku"],
+        validate: [
+            // [16, 512] length
+            function (val: string) {
+                return !!val && val.length >= 16 && val.length <= 512;
+            },
+            "Nazwa posiłku powinna zawierać od 16 do 512 znaków",
+        ],
     },
     image: String,
     ingredients: {
@@ -27,7 +40,7 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
             function (val: any) {
                 return val.length > 0;
             },
-            "Posiłek powinien zawierać chociaż jeden składnik!",
+            "Posiłek powinien zawierać chociaż jeden składnik",
         ],
     },
     posted: {
@@ -36,11 +49,18 @@ const mealSchema = new mongoose.Schema<IMealSchema>({
     },
     title: {
         type: String,
-        required: true,
+        required: [true, "Wymagana nazwa posiłku"],
+        validate: [
+            // [4, 32] length
+            function (val: any) {
+                return !!val && val.length >= 4 && val.length <= 32;
+            },
+            "Nazwa posiłku powinna zawierać od 4 do 32 znaków",
+        ],
     },
     type: {
         type: String,
-        required: true,
+        required: [true, "Wymagany typ posiłku"],
     },
 });
 

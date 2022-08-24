@@ -2,14 +2,10 @@
 
 Website that will help you to find somewhat to eat!
 
-<br />
-
 ## About
 
 Have you ever encountered a situation when you didn't know what to cook?
 Yummy will help you to make the best decision!
-
-<br />
 
 ## Using
 
@@ -27,7 +23,7 @@ When you click on a result, it redirects to `/result` subpage, where you can see
 
 There is one more button on the bottom `/search` subpage. The `Dodaj` button allows you adding a new meal. It redirects to `/meals/add`.
 
-Being in `/meals/add`, you can see a form, containing the fields.
+Being in `/meals/add`, you can see a form, containing the following fields:
 
 -   `Nazwa posiłku`
 -   `Opis posiłku`
@@ -35,7 +31,7 @@ Being in `/meals/add`, you can see a form, containing the fields.
 -   `Imię autora wprowadzającego posiłek`
 -   `Składniki`
 
-are required. You can optionally add an image for a new meal.
+There are required. You can optionally add an image for a new meal.
 Additionally, `Nazwa posiłku` is unique i.e. there is no any meal with that name in the database.
 
 <br />
@@ -44,17 +40,13 @@ Additionally, `Nazwa posiłku` is unique i.e. there is no any meal with that nam
 
 This section contains information about adding the new stuff.
 
-<br />
-
 ## Adding a new icon
 
 1. Download a new icon image and attach to the appropriate directory, locating in `/icons`.
 2. Open `YummyData.ts` and add a new property to `icons` object, naming it according to `camelCase` convention.
 3. For the object being created set following properties: `name`, `url` (starting in `/icons`), `ext` (abbr. extension) and `link` (i.e. `source`)
 
-<br />
-
-### Adding the new property for `icons` object
+## Adding the new property for `icons` object
 
 The below example creates a new icon located in directory `/icons/default/new-icon.jpg`.
 <br />
@@ -82,4 +74,4 @@ newIngredient: new Ingredient(
 ),
 ```
 
-where `Category` has enum type and `icons` is the object planty of icons in the same file as `ingredients`.
+where `Category` has enum type and `icons` is the object plenty of icons in the same file as `ingredients`.
