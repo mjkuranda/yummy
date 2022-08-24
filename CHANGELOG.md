@@ -8,6 +8,8 @@
 
 -   Added validation for server side.
 -   Added error 400 subpage.
+-   Added validation for client side.
+-   Handles MongoDB errors.
 
 ## [2.7.0] - 2022-08-23
 
