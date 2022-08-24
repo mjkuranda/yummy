@@ -189,9 +189,12 @@ class YummyRouter {
         try {
             meal = await MealModel.findOne({ title: req.body.title });
             if (meal) {
-                return res
-                    .status(400)
-                    .send("Istnieje już posiłek o takiej nazwie!");
+                return res.status(400).render("meals-add-new-error", {
+                    prefixPath: "../",
+                    elements: elements.mealsAddNewError,
+                    isNotMain: res.req.url !== "/",
+                    messages: ["Istnieje już posiłek o takiej nazwie!"],
+                });
             }
         } catch (err: any) {
             return res.status(500).send({ message: err.message });
@@ -208,16 +211,23 @@ class YummyRouter {
         next: NextFunction
     ): any {
         if (err instanceof multer.MulterError) {
+            let message = null;
+
             switch (err.code) {
                 case "LIMIT_FILE_SIZE":
-                    res.send("Plik jest zbyt duży");
+                    message = "Plik jest zbyt duży";
                     break;
                 case "LIMIT_UNEXPECTED_FILE":
-                    res.send("Plik musi być obrazkiem");
+                    message = "Plik musi być obrazkiem";
                     break;
             }
 
-            return;
+            return res.status(400).render("meals-add-new-error", {
+                prefixPath: "../",
+                elements: elements.mealsAddNewError,
+                isNotMain: res.req.url !== "/",
+                messages: [message],
+            });
         }
 
         next();

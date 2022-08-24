@@ -1,5 +1,14 @@
 # Yummy Changelog
 
+## [2.8.0] - 2022-08-24
+
+-   [mjkuranda]: Validation server & client side.
+
+### Added
+
+-   Added validation for server side.
+-   Added error 400 subpage.
+
 ## [2.7.0] - 2022-08-23
 
 -   [mjkuranda]: Meals without image render no image photo.
