@@ -3,18 +3,22 @@
         <a href="/search"><i class="fa fa-chevron-circle-left"></i>Powrót do wyszukiwania</a>
     </div>
     <div class="meals-add-container">
-        <form method="post" enctype="multipart/form-data">
-            <div>
+        <form method="post" enctype="multipart/form-data" onsubmit="return validate()">
+            <div required>
                 <h2>Nazwa posiłku</h2>
                 <div class="flex-center">
                     <input
                         type="text"
                         name="title"
                         placeholder="Wprowadź tytuł posiłku"
+                        pattern="{{validator.title}}"
+                        title="Liczba znaków w zakresie od 4 do 32"
+                        required
                     />
+                    <button class="square"></button>
                 </div>
             </div>
-            <div>
+            <div required>
                 <h2>Opis posiłku</h2>
                 <div class="flex-center">
                     <textarea
@@ -22,23 +26,29 @@
                         rows="10"
                         name="description"
                         placeholder="Wprowadź opis dla posiłku"
+                        minlength="16"
+                        maxlength="512"
+                        title="Liczba znaków w zakresie od 16 do 512"
+                        required
                     ></textarea>
+                    <button class="square"></button>
                 </div>
             </div>
-            <div>
+            <div required>
                 <h2>Rodzaj posiłku</h2>
                 <div class="meal-type-container flex-center">
-                    <select name="type">
+                    <select name="type" required>
                         {{#each mealTypes as |type|}}
                         <option value="{{type.k}}">{{type.v}}</option>
                         {{/each}}
                     </select>
                 </div>
             </div>
-            <div>
+            <div required>
                 <h2>Imię autora wprowadzającego posiłek</h2>
                 <div class="flex-center">
-                    <input type="text" name="author" placeholder="Wprowadź swoje imię" />
+                    <input type="text" name="author" placeholder="Wprowadź swoje imię" pattern="{{validator.author}}" title="Co najmniej 4 znaki" required />
+                    <button class="square"></button>
                 </div>
             </div>
             <div>
@@ -48,9 +58,9 @@
                     <input type="file" name="image" placeholder="Wybierz zdjęcie" id="image" />
                 </div>
             </div>
-            <div>
+            <div required>
                 <h2>Składniki</h2>
-                <div class="category-container">
+                <div class="category-container" required>
                     {{#each filter.categorized as |cat|}}
                         <div class="category">
                             <h3>{{cat.category}}</h3>
@@ -80,3 +90,27 @@
         </form>
     </div>
 </main>
+<script>
+    function validate() {
+        const file = document.querySelector('input[name=image]').files[0];
+
+        if (file.size >= 1024 * 512) {
+            alert('Zdjęcie jest zbyt duże! Maksymalny rozmiar zdjęcia to 512 kB (0.5 MB)');
+            return false;
+        }
+
+        if (!['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
+            alert('Wymagany typ pliku to: jpeg | jpg | png');
+            return false;
+        }
+
+        const ings = document.querySelectorAll('input[type="checkbox"]:checked').length;
+
+        if (ings === 0) {
+            alert('Posiłek powinien zawierać chociaż jeden składnik!');
+            return false;
+        }
+
+        return true;
+    }
+</script>

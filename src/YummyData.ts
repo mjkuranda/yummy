@@ -60,6 +60,13 @@ export const elements = {
     },
 };
 
+/* Meal Validator */
+export const mealValidator = {
+    author: "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż\\s]{4,}$",
+    description: "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\\s]{15,511}$",
+    title: "^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż\\s]{3,31}$",
+};
+
 /* Icons */
 export const icons = {
     listView: new Icon(

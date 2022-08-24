@@ -2,7 +2,7 @@ import { Express, Router, Request, Response, NextFunction } from "express";
 import { IDatabase, IQuery } from "../databases/IDatabase";
 import MealModel from "../databases/models/MealModel";
 import Ingredient from "./classes/Ingredient";
-import { elements, icons, ingredients } from "./YummyData";
+import { elements, icons, ingredients, mealValidator } from "./YummyData";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
 import { Type } from "./classes/Meal";
@@ -129,6 +129,7 @@ class YummyRouter {
                 categorized: categorizeIngredients(),
             },
             mealTypes: mealTypes,
+            validator: mealValidator,
         });
     }
 

@@ -67,6 +67,11 @@ button:disabled {
     opacity: 0.618;
     cursor: not-allowed;
 }
+button.square {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+}
 
 a {
     /* cursor: alias; */
@@ -99,6 +104,14 @@ input[type="checkbox"]:hover {
 }
 input[type="checkbox"]:checked {
     box-shadow: inset 0 0 0 20px var(--cooper);
+}
+input:not(:placeholder-shown):required:valid,
+textarea:not(:placeholder-shown):required:valid {
+    background-color: chartreuse;
+}
+input:not(:placeholder-shown):invalid,
+textarea:not(:placeholder-shown):invalid {
+    background-color: orangered;
 }
 
 .center {
