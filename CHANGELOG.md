@@ -1,5 +1,15 @@
 # Yummy Changelog
 
+## [2.9.0] - 2022-08-25
+
+-   [mjkuranda]: Sorting got results.
+
+### Added
+
+-   Added `relevance` property to each got meal in `/search`.
+-   Sorting meals by `relevance` and ingredients amount.
+-   Opening a meal result by RMB on result's image.
+
 ## [2.8.0] - 2022-08-24
 
 -   [mjkuranda]: Validation server & client side.
