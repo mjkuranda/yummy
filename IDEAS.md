@@ -2,9 +2,9 @@
 
 ## Missing features
 
--   Error page for multer and other errors while you are trying to add a new meal.
 -   Edition of existing meals - you can edit anything you want apart from the title - because it occurs as the name.
--   Add pagination for results.
+-   Add pagination for results. (v2.10.0?)
+-   Add responsive web design for the other subsites. (v2.11.0?)
 
 ## Bugs
 
@@ -16,6 +16,7 @@ v2.8.0:
 
 -   Validation - client side: The patterns should be loaded from pattern file? Or simply embedeed inside elements.
 -   Better handling MongoDB errors - types of errors and their communicates.
+-   Error page for multer and other errors while you are trying to add a new meal.
 
 v2.9.0
 
