@@ -35,7 +35,16 @@
             setHash(loc) { if(loc === '' || !loc) history.replaceState({},
             document.title, window.location.href.split('#')[0]);
             history.replaceState({}, document.title,
-            `${window.location.href.split('#')[0]}#${loc}`); }
+            `${window.location.href.split('#')[0]}#${loc}`); } function
+            setUrl(loc) { move('/search?x=5'); return; let vars =
+            window.location.href.split('?')[1].split('&'); const hash =
+            vars[vars.length - 1].split('#')[1]; vars[vars.length - 1] =
+            vars[vars.length - 1].split('#')[0]; const isPage = vars.some(v => {
+            return v.substr(0, 4) === 'page'; }); let url =
+            window.location.href.split('?')[0] + '?pagexxx=1&';
+            vars.forEach(function (v, i) { if (i !== 0) url += '&'; url += v;
+            }); if(loc) {url += '#' + loc;} alert(url); history.replaceState({},
+            document.title, url); }
         </script>
     </head>
     <body>

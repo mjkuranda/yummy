@@ -39,6 +39,7 @@
         <div class="flex-center">
             <button type="submit" onClick="setHash('results')">Wyszukaj</button>
         </div>
+        <input id="page" name="page" value="{{page}}" hidden />
     </form>
 </section>
 
@@ -67,6 +68,18 @@
         </div>
         {{/each}}
     </section>
+    {{#if meals.length}}
+    <section id="pages" class="flex-center">
+        <p><strong>Strony:</strong></p>
+        {{#each pages as |p|}}
+            {{#if (isCurrentPage p)}}
+            <p>{{p}}</p>
+            {{else}}
+            <a href="{{setPage p}}#results">{{p}}</a>
+            {{/if}}
+        {{/each}}
+    </section>
+    {{/if}}
     <section id="adder">
         <div class="flex-center"><p>Brakuje szukanego posiłku? Dodaj go!</p></div>
         <div class="flex-center"><button onClick="move('/meals/add')">Dodaj</button></div>

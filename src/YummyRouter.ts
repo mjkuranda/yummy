@@ -102,6 +102,11 @@ class YummyRouter {
             }
         }
 
+        let pages = [];
+        for (let p = 1; p <= meals!.length / resultsPerPage + 1; p++) {
+            pages.push(p);
+        }
+
         res.render("search", {
             elements: elements.search,
             isNotMain: res.req.url !== "/",
@@ -119,10 +124,23 @@ class YummyRouter {
                 sourceUrl() {
                     return res.req.url.split("/search?")[1];
                 },
+                page() {
+                    return req.query.page ?? 1;
+                },
+                setPage(p: string | number) {
+                    return res.req.url.replace(
+                        `page=${req.query.page}`,
+                        `page=${p}`
+                    );
+                },
+                isCurrentPage(p: string | number) {
+                    return p == req.query.page;
+                },
             },
             mealTypes: mealTypes,
             meals: paggedMeals,
             noImage: icons.noImage,
+            pages: pages,
         });
     }
 

@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.10.0] - 2022-08-25
+
+-   [mjkuranda]: Paging meal results.
+
+### Added
+
+-   Added paging meal results.
+
 ## [2.9.0] - 2022-08-25
 
 -   [mjkuranda]: Sorting got results.

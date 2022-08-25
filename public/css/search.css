@@ -207,3 +207,11 @@ form {
 #adder > div:nth-child(1) {
     margin-bottom: 0.5em;
 }
+
+#pages {
+    margin: 2em 0;
+}
+#pages > a,
+#pages > p {
+    margin-right: 0.5em;
+}
