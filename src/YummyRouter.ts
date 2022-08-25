@@ -91,6 +91,17 @@ class YummyRouter {
             } else return b.relevance - a.relevance;
         });
 
+        // Paging
+        const page = Number(req.query.page as string) ?? 1;
+        const resultsPerPage = 15;
+        const start = (page - 1) * resultsPerPage;
+        let paggedMeals: Meal[] = [];
+        for (let i = start; i < start + resultsPerPage; i++) {
+            if (meals![i]) {
+                paggedMeals.push(meals![i]);
+            }
+        }
+
         res.render("search", {
             elements: elements.search,
             isNotMain: res.req.url !== "/",
@@ -110,7 +121,7 @@ class YummyRouter {
                 },
             },
             mealTypes: mealTypes,
-            meals: meals,
+            meals: paggedMeals,
             noImage: icons.noImage,
         });
     }

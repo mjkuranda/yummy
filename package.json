@@ -1,6 +1,6 @@
 {
     "name": "yummy",
-    "version": "2.9.0",
+    "version": "2.10.0",
     "description": "Website that will help you the best!",
     "main": "index.js",
     "scripts": {

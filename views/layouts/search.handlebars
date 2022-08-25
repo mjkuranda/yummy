@@ -10,14 +10,6 @@
                             {{#each this.ingredients as |ing|}}
                                 <li>
                                     <input type="checkbox" id="{{ing.icon.name}}" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" {{ tryToCheck ing.icon.name}} />
-                                    {{!-- <img
-                                        class="icon"
-                                        src="{{ing.icon.src}}"
-                                        alt="'{{ing.icon.name}}' ingredient image"
-                                        author="{{ing.icon.link}}"
-                                    ></img>
-                                    <label for="{{ing.icon.name}}">{{ing.name}}</label> --}}
-
                                     <label for="{{ing.icon.name}}" class="flex-center">
                                         <img
                                             class="icon"

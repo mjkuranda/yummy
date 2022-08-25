@@ -3,7 +3,6 @@
 ## Missing features
 
 -   Edition of existing meals - you can edit anything you want apart from the title - because it occurs as the name.
--   Add pagination for results. (v2.10.0?)
 -   Add responsive web design for the other subsites. (v2.11.0?)
 
 ## Bugs
@@ -21,6 +20,10 @@ v2.8.0:
 v2.9.0
 
 -   Each result has a property called `relevance` - could be measured as a percentage. The found results should be sorted according to the this property.
+
+v2.10.0
+
+-   Add pagination for results.
 
 ## Changed
 
