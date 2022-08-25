@@ -7,6 +7,7 @@
 
 ## Bugs
 
+-   Client validation for an existing meal in the database
 -   (vNaN): NaN
 
 ## Added
