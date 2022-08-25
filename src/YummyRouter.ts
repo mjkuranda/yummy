@@ -93,7 +93,7 @@ class YummyRouter {
 
         // Paging
         const page = Number(req.query.page as string) ?? 1;
-        const resultsPerPage = 15;
+        const resultsPerPage = 10;
         const start = (page - 1) * resultsPerPage;
         let paggedMeals: Meal[] = [];
         for (let i = start; i < start + resultsPerPage; i++) {
