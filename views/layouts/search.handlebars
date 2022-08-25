@@ -55,11 +55,13 @@
         {{#each meals as |meal| }}
         <div class="result-container flex-center">
             <div class="result-image">
-                {{#if meal.image}}
-                <img src="uploads/{{meal.image}}" alt="Zdjęcie posiłku o nazwie {{meal.title}}" />
-                {{else}}
-                <img src="icons/no-image.png" alt="Brak zdjęcia posiłku o nazwie {{meal.title}}" />
-                {{/if}}
+                <a class="img-link" href="/result/{{meal._id}}?{{sourceUrl}}" target="_blank">
+                    {{#if meal.image}}
+                    <img src="uploads/{{meal.image}}" alt="Zdjęcie posiłku o nazwie {{meal.title}}" />
+                    {{else}}
+                    <img src="icons/no-image.png" alt="Brak zdjęcia posiłku o nazwie {{meal.title}}" />
+                    {{/if}}
+                </a>
             </div>
             <div class="result-label">
                 <div class="result-description">

@@ -10,7 +10,6 @@ export enum Type {
 
 interface IMeal {
     format(): void;
-    toString(): string;
 }
 
 export default class Meal implements IMeal {
@@ -48,9 +47,5 @@ export default class Meal implements IMeal {
 
     public format(): void {
         console.log(`Meal "${this.name}".`);
-    }
-
-    public toString(): string {
-        return JSON.stringify(this);
     }
 }
