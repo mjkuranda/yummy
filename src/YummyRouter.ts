@@ -5,7 +5,7 @@ import Ingredient from "./classes/Ingredient";
 import { elements, icons, ingredients, mealValidator } from "./YummyData";
 
 import { categorizeIngredients } from "./handlers/searchHandler";
-import { Type } from "./classes/Meal";
+import Meal, { Type } from "./classes/Meal";
 
 import multer from "multer";
 import { fileStorage, fileFilter } from "./handlers/multer";
@@ -63,6 +63,32 @@ class YummyRouter {
             const val = mealTypesValues[id];
             const v = val.charAt(0).toUpperCase() + val.toLowerCase().slice(1);
             return { k, v };
+        });
+
+        // Define relevance of each meal
+        meals?.map((meal) => {
+            let relevance = 0;
+
+            meal.ingredients.forEach((ing) => {
+                if (ings.includes(ing)) {
+                    relevance++;
+                }
+            });
+
+            // The same count of ingredients as selected ingredients
+            if (JSON.stringify(meal.ingredients) === JSON.stringify(ings)) {
+                relevance++;
+            }
+
+            meal.relevance = relevance;
+
+            return meal;
+        });
+
+        meals?.sort((a: Meal, b: Meal) => {
+            if (b.relevance === a.relevance) {
+                return a.ingredients.length - b.ingredients.length;
+            } else return b.relevance - a.relevance;
         });
 
         res.render("search", {
