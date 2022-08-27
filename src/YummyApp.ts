@@ -40,6 +40,7 @@ class YummyApp {
         this.app.use(
             express.static(path.join(__dirname, "\\..\\..\\public\\"))
         );
+        console.log(`Static files served from: ${__dirname}\\..\\..\\public\\`);
 
         // Init router
         this.router = new YummyRouter(this.app, this.db);
