@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import handlebars from "handlebars";
+import dotenv from "dotenv";
 import { engine } from "express-handlebars";
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import bodyParser from "body-parser";
@@ -25,6 +26,7 @@ class YummyApp {
                 },
             },
         });
+        dotenv.config();
 
         // BodyParser
         this.app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,7 +47,7 @@ class YummyApp {
         this.app.listen(this.port, () =>
             console.log(
                 `Express has been run at the address:
-        http://localhost:${this.port};
+        ${process.env.PROTOCOL}://${process.env.HOSTNAME}:${this.port};
         Press Ctrl-C to terminate it.`
             )
         );

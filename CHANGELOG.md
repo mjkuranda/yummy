@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.10.1] - 2022-08-27
+
+-   [mjkuranda]: Handling dotenv package.
+
+### Changed
+
+-   Application port, hostname, database credentials are loaded from `.env` file.
+
 ## [2.10.0] - 2022-08-25
 
 -   [mjkuranda]: Paging meal results.

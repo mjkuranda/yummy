@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import { IDatabase, IQuery } from "./IDatabase";
 import Meal from "../src/classes/Meal";
 import MealModel from "../databases/models/MealModel";
@@ -8,10 +9,18 @@ class MongoDB implements IDatabase {
 
     constructor() {
         this.isConnected = false;
+        dotenv.config();
     }
 
     public async init(): Promise<void> {
-        await mongoose.connect("mongodb://localhost:27017/yummy");
+        let credentials =
+            process.env.DB_USER && process.env.DB_PASS
+                ? `${process.env.DB_USER}:${process.env.DB_PASS}@`
+                : "";
+
+        await mongoose.connect(
+            `mongodb://${credentials}${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+        );
 
         const db = mongoose.connection;
         db.on("error", () => console.error("MongoDB Connection error"));
