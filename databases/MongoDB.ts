@@ -13,16 +13,18 @@ class MongoDB implements IDatabase {
     }
 
     public async init(): Promise<void> {
-        // let credentials =
-        //     process.env.DB_USER && process.env.DB_PASS
-        //         ? `${process.env.DB_USER}:${process.env.DB_PASS}@`
-        //         : "";
+        let credentials =
+            process.env.DB_USER && process.env.DB_PASS
+                ? `${process.env.DB_USER}:${process.env.DB_PASS}@`
+                : "";
 
-        // await mongoose.connect(
-        //     `mongodb://${credentials}${process.env.DB_HOSTNAME}:${process.env.DB_PORT}/${process.env.DB_NAME}`
-        // );
-
-        await mongoose.connect(`${process.env.DB_FULL_URL}`);
+        await mongoose.connect(
+            `${process.env.DB_PROTOCOL || "mongodb"}://${credentials}${
+                process.env.DB_HOSTNAME
+            }:${process.env.DB_PORT}/${
+                process.env.DB_NAME
+            }?retryWrites=true&w=majority`
+        );
 
         const db = mongoose.connection;
         db.on("error", () => console.error("MongoDB Connection error"));
