@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import handlebars from "handlebars";
 import dotenv from "dotenv";
+import path from "path";
 import { engine } from "express-handlebars";
 import { allowInsecurePrototypeAccess } from "@handlebars/allow-prototype-access";
 import bodyParser from "body-parser";
@@ -36,7 +37,9 @@ class YummyApp {
         this.app.engine("handlebars", this.hbs);
         this.app.set("view engine", "handlebars");
         this.app.set("views", "./views/layouts");
-        this.app.use(express.static(__dirname + "\\..\\..\\public\\"));
+        this.app.use(
+            express.static(path.join(__dirname, "\\..\\..\\public\\"))
+        );
 
         // Init router
         this.router = new YummyRouter(this.app, this.db);
