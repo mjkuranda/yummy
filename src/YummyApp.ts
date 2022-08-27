@@ -37,10 +37,19 @@ class YummyApp {
         this.app.engine("handlebars", this.hbs);
         this.app.set("view engine", "handlebars");
         this.app.set("views", "./views/layouts");
-        this.app.use(
-            express.static(path.join(__dirname, "\\..\\..\\public\\"))
-        );
-        console.log(`Static files served from: ${__dirname}\\..\\..\\public\\`);
+        if (process.env.DEPLOY) {
+            this.app.use(
+                express.static(path.join(__dirname, "/../../public/"))
+            );
+            console.log(`Static files served from: ${__dirname}/../../public/`);
+        } else {
+            this.app.use(
+                express.static(path.join(__dirname, "\\..\\..\\public\\"))
+            );
+            console.log(
+                `Static files served from: ${__dirname}\\..\\..\\public\\`
+            );
+        }
 
         // Init router
         this.router = new YummyRouter(this.app, this.db);
