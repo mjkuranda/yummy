@@ -7,7 +7,7 @@
 ### Changed
 
 -   Application port, hostname, database credentials are loaded from `.env` file.
--   Deploy on HerokuApp.com
+-   Deploy on HerokuApp.com - working app.
 
 ## [2.10.0] - 2022-08-25
 
