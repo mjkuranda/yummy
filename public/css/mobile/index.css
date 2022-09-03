@@ -33,12 +33,6 @@
         text-align: center;
     }
     .category-container > div > button {
-        /* width: calc(16em * var(--phi));
-        height: calc(4em * var(--phi)); */
         font-size: calc(1em * var(--phi));
-    }
-
-    footer {
-        font-size: calc(var(--phi) * 1.42em);
     }
 }

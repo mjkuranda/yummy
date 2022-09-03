@@ -17,6 +17,7 @@ export const elements = {
             { link: "header" },
             { link: "search" },
             { link: "search-media" },
+            { link: "mobile/search" },
         ],
         scripts: [],
     },
