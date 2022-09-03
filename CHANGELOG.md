@@ -1,5 +1,13 @@
 # Yummy Changelog
 
+## [2.11.0] - 2022-09-03
+
+-   [mjkuranda]: Added better responsive web design for mobile users.
+
+### Added
+
+-
+
 ## [2.10.1] - 2022-08-27
 
 -   [mjkuranda]: Handling dotenv package.

@@ -1,0 +1,44 @@
+@media only screen and (max-width: 1024px) {
+    #header-container {
+        transform: scale(calc(var(--phi) + 1));
+    }
+
+    #description {
+        height: auto;
+    }
+
+    #categories .cloth {
+        width: 85%;
+    }
+    #description-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 2em 0;
+    }
+    #description-wrapper > div:first-child,
+    #description-wrapper > div:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 50%;
+        padding: 2em 0;
+        font-size: calc(var(--phi) * 1em);
+    }
+
+    .category-container > p {
+        font-size: calc(var(--phi) * 1.41em);
+        margin-bottom: 2em;
+        text-align: center;
+    }
+    .category-container > div > button {
+        /* width: calc(16em * var(--phi));
+        height: calc(4em * var(--phi)); */
+        font-size: calc(1em * var(--phi));
+    }
+
+    footer {
+        font-size: calc(var(--phi) * 1.42em);
+    }
+}

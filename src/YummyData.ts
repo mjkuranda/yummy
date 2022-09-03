@@ -5,7 +5,11 @@ import Category from "./enums/categories";
 /* Elements for subsites */
 export const elements = {
     main: {
-        links: [{ link: "index" }, { link: "index-media" }],
+        links: [
+            { link: "index" },
+            { link: "index-media" },
+            { link: "mobile/index" },
+        ],
         scripts: [],
     },
     search: {
