@@ -1,0 +1,6 @@
+@media only screen and (max-width: 1024px) {
+    button {
+        transform: scale(calc(var(--phi) * 2));
+        margin: 12em 0;
+    }
+}

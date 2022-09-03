@@ -48,6 +48,8 @@ export const elements = {
             { link: "header", prefix: "../" },
             { link: "meals-add", prefix: "../" },
             { link: "meals-add-new", prefix: "../" },
+            { link: "mobile/header", prefix: "../" },
+            { link: "mobile/meals-add-new", prefix: "../" },
         ],
         scripts: [],
         prefixPath: "../",
@@ -56,6 +58,8 @@ export const elements = {
         links: [
             { link: "header", prefix: "../" },
             { link: "meals-add-new-error", prefix: "../" },
+            { link: "mobile/header", prefix: "../" },
+            { link: "mobile/meals-add-new-error", prefix: "../" },
         ],
         scripts: [],
         prefixPath: "../",
