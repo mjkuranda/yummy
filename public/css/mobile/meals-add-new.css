@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1024px) {
+    .new-meal-container {
+        font-size: calc(var(--phi) * 1em);
+    }
+
+    .new-meal-data-container {
+        width: auto;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    button {
+        transform: scale(calc(var(--phi) * 2));
+        margin-bottom: 12em;
+    }
+}
