@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1024px) {
+    body {
+        --mh: unset !important;
+        --wh: unset !important;
+        --hh: unset !important;
+
+        font-size: calc(var(--phi) * 1em);
+    }
+
+    header {
+        font-size: calc(var(--phi) * 1em);
+        height: auto !important;
+        padding: 0.5em 0;
+    }
+    header > div {
+        display: block !important;
+    }
+    header div.flex-left {
+        justify-content: center !important;
+    }
+    header nav {
+        justify-content: center !important;
+        margin: 0.5em 0;
+    }
+
+    #logo {
+        margin: 0 0.5em 0 0;
+    }
+}
