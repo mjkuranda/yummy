@@ -37,6 +37,8 @@ export const elements = {
             { link: "header", prefix: "../" },
             { link: "meals-add", prefix: "../" },
             { link: "search", prefix: "../" },
+            { link: "mobile/header", prefix: "../" },
+            { link: "mobile/meals-add", prefix: "../" },
         ],
         scripts: [],
         prefixPath: "../",

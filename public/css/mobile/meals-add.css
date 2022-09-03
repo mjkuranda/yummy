@@ -1,0 +1,44 @@
+@media only screen and (max-width: 1024px) {
+    main {
+        font-size: calc(var(--phi) * 1em);
+    }
+
+    form > div div.flex-center input:placeholder-shown,
+    #image,
+    form > div div.flex-center select:placeholder-shown,
+    form > div div.flex-center select::selection,
+    form > div div.flex-center select,
+    input:not(:placeholder-shown):required:valid,
+    textarea:not(:placeholder-shown):required:valid,
+    input:not(:placeholder-shown):invalid,
+    textarea:not(:placeholder-shown):invalid {
+        font-size: calc(var(--phi) * 0.618em);
+    }
+
+    form > div div.flex-center input,
+    form > div div.flex-center select {
+        width: 16em;
+        border-radius: 8em;
+    }
+    form > div div.flex-center textarea {
+        width: 32em;
+        height: 8em;
+        font-size: calc(var(--phi) * 0.618em);
+    }
+
+    .category-container {
+        font-size: calc(var(--phi) * 0.718em);
+    }
+
+    .category-container .category {
+        width: 100% !important;
+    }
+    .category-container input {
+        font-size: calc(var(--phi) * 0.5em);
+    }
+
+    button {
+        transform: scale(calc(var(--phi) * 2));
+        margin-bottom: 12em;
+    }
+}

@@ -1,8 +1,4 @@
 @media only screen and (max-width: 1024px) {
-    #filters {
-        font-size: calc(var(--phi) * 1em);
-    }
-
     button {
         transform: scale(calc(var(--phi) * 2));
         margin-bottom: 2em;
@@ -19,6 +15,10 @@
     #pages p,
     #pages a {
         margin-right: 1em;
+    }
+
+    #filters {
+        font-size: calc(var(--phi) * 1em);
     }
 
     form .category {
