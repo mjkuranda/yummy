@@ -6,7 +6,7 @@
 
 ### Added
 
--
+-   Responsive web design for each subsites using mobile devices.
 
 ## [2.10.1] - 2022-08-27
 

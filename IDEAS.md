@@ -3,7 +3,6 @@
 ## Missing features
 
 -   Edition of existing meals - you can edit anything you want apart from the title - because it occurs as the name.
--   Add responsive web design for the other subsites. (v2.11.0?)
 
 ## Bugs
 
@@ -25,6 +24,10 @@ v2.9.0
 v2.10.0
 
 -   Add pagination for results.
+
+v2.11.0
+
+-   Add responsive web design for the other subsites.
 
 ## Changed
 
