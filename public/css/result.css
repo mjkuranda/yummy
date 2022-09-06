@@ -6,10 +6,10 @@ main {
     background-color: var(--honey-yellow);
     padding: 1em;
     margin-bottom: 0.5em;
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 .result-nav > a > i {
-    margin-right: .5em;
+    margin-right: 0.5em;
 }
 
 .result-container {
@@ -20,7 +20,7 @@ main {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 .result-details {
     margin: 2em;
@@ -60,6 +60,6 @@ main {
     margin: 1em;
 }
 .result-ingredients > ul > li > span {
-    margin-left: .618em;
+    margin-left: 0.618em;
     cursor: default;
 }
