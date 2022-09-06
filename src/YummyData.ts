@@ -227,7 +227,7 @@ export const ingredients = {
     // seafish
     fish_food: new Ingredient(Category.SEAFISH, icons.fish_food, "ryba"),
     // vegetables
-    broccoli: new Ingredient(Category.VEGETABLES, icons.broccoli, "brokuła"),
+    broccoli: new Ingredient(Category.VEGETABLES, icons.broccoli, "brokuł"),
     carrot: new Ingredient(Category.VEGETABLES, icons.carrot, "marchew"),
     cauliflower: new Ingredient(
         Category.VEGETABLES,
