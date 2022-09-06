@@ -1,5 +1,11 @@
 # Yummy Changelog
 
+## [2.11.1] - 2022-09-06
+
+### Fixed
+
+-   [mjkuranda]: Responsive web design for mobile users.
+
 ## [2.11.0] - 2022-09-03
 
 -   [mjkuranda]: Added better responsive web design for mobile users.

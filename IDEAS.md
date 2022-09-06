@@ -7,6 +7,7 @@
 ## Bugs
 
 -   Client validation for an existing meal in the database
+-   Types has affect on searching results.
 -   (vNaN): NaN
 
 ## Added

@@ -1,5 +1,5 @@
 @media only screen and (max-width: 1024px) {
     footer {
-        font-size: calc(var(--phi) * 1.42em);
+        font-size: calc(var(--phi) * 1em);
     }
 }

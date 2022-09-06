@@ -35,4 +35,8 @@
     .category-container > div > button {
         font-size: calc(1em * var(--phi));
     }
+
+    footer {
+        font-size: calc(var(--phi) * 1.42em);
+    }
 }
