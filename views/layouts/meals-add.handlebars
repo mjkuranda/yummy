@@ -67,14 +67,16 @@
                             <ul>
                                 {{#each this.ingredients as |ing|}}
                                     <li>
-                                        <input type="checkbox" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" />
-                                        <img
-                                            class="icon"
-                                            src="../../{{ing.icon.src}}"
-                                            alt="'{{ing.icon.name}}' ingredient image"
-                                            author="{{ing.icon.link}}"
-                                        ></imgv>
-                                        <label>{{ing.name}}</label>
+                                        <input type="checkbox" id="{{ing.icon.name}}" name="ings[]" data-id="{{ing.icon.name}}" value="{{ing.icon.name}}" />
+                                        <label for="{{ing.icon.name}}" class="flex-center">
+                                            <img
+                                                class="icon"
+                                                src="../../{{ing.icon.src}}"
+                                                alt="'{{ing.icon.name}}' ingredient image"
+                                                author="{{ing.icon.link}}"
+                                            ></img>
+                                            <p>{{ing.name}}</p>
+                                        </label>
                                     </li>
                                 {{/each}}
                             </ul>

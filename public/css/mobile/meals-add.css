@@ -26,12 +26,14 @@
         font-size: calc(var(--phi) * 0.618em);
     }
 
-    .category-container {
-        font-size: calc(var(--phi) * 0.718em);
-    }
-
     .category-container .category {
         width: 100% !important;
+    }
+    .category-container .category label,
+    .category-container .category p {
+        margin-left: 0.2em;
+        cursor: pointer;
+        user-select: none;
     }
     .category-container input {
         font-size: calc(var(--phi) * 0.5em);
