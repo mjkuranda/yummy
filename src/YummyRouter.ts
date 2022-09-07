@@ -96,9 +96,11 @@ class YummyRouter {
         const resultsPerPage = 10;
         const start = (page - 1) * resultsPerPage;
         let paggedMeals: Meal[] = [];
-        for (let i = start; i < start + resultsPerPage; i++) {
-            if (meals![i]) {
-                paggedMeals.push(meals![i]);
+        if (meals) {
+            for (let i = start; i < start + resultsPerPage; i++) {
+                if (meals![i]) {
+                    paggedMeals.push(meals![i]);
+                }
             }
         }
 
