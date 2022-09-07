@@ -37,8 +37,12 @@ class MongoDB implements IDatabase {
         return this.isConnected;
     }
 
-    public async get(query: IQuery): Promise<[Meal]> {
-        const queryObject: { ingredients?: any; type?: any } = {};
+    public async get(query: IQuery): Promise<[Meal] | Meal | null> {
+        const queryObject: { ingredients?: any; type?: any; id?: string } = {};
+
+        if (query.id) {
+            return (await MealModel.findById(query.id)) as Meal;
+        }
 
         if (query.ings) {
             queryObject.ingredients = { $in: query.ings };
@@ -48,14 +52,14 @@ class MongoDB implements IDatabase {
             queryObject.type = { $in: query.types };
         }
 
-        const meals = (await MealModel.find(queryObject)) as [Meal];
-
-        return meals;
+        return (await MealModel.find(queryObject)) as [Meal];
     }
 
-    public async getWithId(id: string): Promise<Meal | null> {
-        return (await MealModel.findById(id)) as Meal;
-    }
+    public async post(meal: Meal): Promise<void> {}
+
+    public async put(id: string, newMeal: Meal): Promise<void> {}
+
+    public async delete(id: string): Promise<void> {}
 }
 
 export default MongoDB;

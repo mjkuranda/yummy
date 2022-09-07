@@ -56,7 +56,7 @@ class YummyRouter {
             ings: ings,
             types: types,
         };
-        const meals = await this.db.get(query);
+        const meals = (await this.db.get(query)) as Meal[] | null;
 
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {
@@ -66,7 +66,7 @@ class YummyRouter {
         });
 
         // Define relevance of each meal
-        meals?.map((meal) => {
+        meals?.map((meal: Meal) => {
             let relevance = 0;
 
             meal.ingredients.forEach((ing) => {
@@ -146,7 +146,7 @@ class YummyRouter {
 
     private async resultId(req: Request, res: Response): Promise<void> {
         const id = req.params.id;
-        const meal = await this.db.getWithId(id);
+        const meal = (await this.db.get({ id: id })) as Meal;
 
         // Map selected ingredients
         let ings: Ingredient[] = [];

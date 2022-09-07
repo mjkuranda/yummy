@@ -1,25 +1,17 @@
 import Meal from "../src/classes/Meal";
 
 export interface IQuery {
-    ings: string[];
-    types: string[];
+    ings?: string[];
+    types?: string[];
+    id?: string;
 }
 
 export interface IDatabase {
     init(): Promise<void>;
     isInitialized(): boolean;
 
-    /*
-     *   @param query: ObjectArray that contains ingredients' names
-     */
-    get(query: IQuery): Promise<[Meal] | null>;
-
-    /*
-     *   @param id: Meal id from the database
-     */
-    getWithId(id: string): Promise<Meal | null>;
-
-    // add(): Promise<void>;
-    // delete(): Promise<void>;
-    // update(): Promise<void>;
+    get(query: IQuery): Promise<[Meal] | Meal | null>;
+    post(meal: Meal): Promise<void>;
+    put(id: string, newMeal: Meal): Promise<void>;
+    delete(id: string): Promise<void>;
 }
