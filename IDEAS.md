@@ -7,28 +7,26 @@
 ## Bugs
 
 -   Client validation for an existing meal in the database
--   Types has affect on searching results.
--   (vNaN): NaN
 
 ## Added
+
+v2.11.0
+
+-   Add responsive web design for the other subsites.
+
+v2.10.0
+
+-   Add pagination for results.
+
+v2.9.0
+
+-   Each result has a property called `relevance` - could be measured as a percentage. The found results should be sorted according to the this property.
 
 v2.8.0:
 
 -   Validation - client side: The patterns should be loaded from pattern file? Or simply embedeed inside elements.
 -   Better handling MongoDB errors - types of errors and their communicates.
 -   Error page for multer and other errors while you are trying to add a new meal.
-
-v2.9.0
-
--   Each result has a property called `relevance` - could be measured as a percentage. The found results should be sorted according to the this property.
-
-v2.10.0
-
--   Add pagination for results.
-
-v2.11.0
-
--   Add responsive web design for the other subsites.
 
 ## Changed
 
@@ -38,6 +36,10 @@ v2.7.0:
 -   Improved README (guide for the customers and the developers - how to add ingredients and other stuff.
 
 ## Fixed
+
+v2.11.2:
+
+-   Types has affect on searching results.
 
 v2.6.3:
 

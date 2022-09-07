@@ -70,7 +70,7 @@ class YummyRouter {
             let relevance = 0;
 
             meal.ingredients.forEach((ing) => {
-                if (ings.includes(ing)) {
+                if (ings?.includes(ing)) {
                     relevance++;
                 }
             });

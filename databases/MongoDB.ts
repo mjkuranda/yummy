@@ -38,17 +38,14 @@ class MongoDB implements IDatabase {
     }
 
     public async get(query: IQuery): Promise<[Meal]> {
-        const queryObject: { ingredients: any; types: any } = {
-            ingredients: undefined,
-            types: undefined,
-        };
+        const queryObject: { ingredients?: any; type?: any } = {};
 
         if (query.ings) {
             queryObject.ingredients = { $in: query.ings };
         }
 
         if (query.types) {
-            queryObject.types = { $in: query.types };
+            queryObject.type = { $in: query.types };
         }
 
         const meals = (await MealModel.find(queryObject)) as [Meal];

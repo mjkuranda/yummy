@@ -1,5 +1,11 @@
 # Yummy Changelog
 
+## [2.11.2] - 2022-09-07
+
+### Fixed
+
+-   [mjkuranda]: Type filter.
+
 ## [2.11.1] - 2022-09-06
 
 ### Fixed
