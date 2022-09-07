@@ -198,16 +198,6 @@ class YummyRouter {
             req.body.type ?? ""
         );
 
-        // {
-        //     author:
-        //     description:
-        //     ingredients:
-        //     posted:
-        //     title:
-        //     type:
-        //     image: undefined,
-        // };
-
         if (req.file) {
             meal.image = req.file.path.split("uploads\\")[1];
         }
@@ -221,7 +211,6 @@ class YummyRouter {
         });
 
         try {
-            // const newMeal = await meal.save();
             const newMeal = await this.db.post(meal);
 
             res.status(201).render("meals-add-new", {
