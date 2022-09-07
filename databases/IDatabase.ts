@@ -11,7 +11,7 @@ export interface IDatabase {
     isInitialized(): boolean;
 
     get(query: IQuery): Promise<[Meal] | Meal | null>;
-    post(meal: Meal): Promise<void>;
+    post(meal: Meal): Promise<any>;
     put(id: string, newMeal: Meal): Promise<void>;
     delete(id: string): Promise<void>;
 }

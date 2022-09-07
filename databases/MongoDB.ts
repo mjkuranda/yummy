@@ -44,6 +44,10 @@ class MongoDB implements IDatabase {
             return (await MealModel.findById(query.id)) as Meal;
         }
 
+        if (!query.ings && !query.types) {
+            return null;
+        }
+
         if (query.ings) {
             queryObject.ingredients = { $in: query.ings };
         }
@@ -55,7 +59,25 @@ class MongoDB implements IDatabase {
         return (await MealModel.find(queryObject)) as [Meal];
     }
 
-    public async post(meal: Meal): Promise<void> {}
+    public async post(meal: Meal): Promise<any> {
+        const mealModel = new MealModel({
+            author: meal.author,
+            description: meal.description,
+            ingredients: meal.ingredients,
+            posted: meal.posted,
+            title: meal.title,
+            type: meal.type,
+        });
+        let result;
+
+        try {
+            result = await mealModel.save();
+        } catch (err: any) {
+            throw err;
+        }
+
+        return result;
+    }
 
     public async put(id: string, newMeal: Meal): Promise<void> {}
 

@@ -1,3 +1,4 @@
+import { throws } from "assert";
 import Ingredient from "./Ingredient";
 
 export enum Type {
@@ -13,28 +14,75 @@ interface IMeal {
 }
 
 export default class Meal implements IMeal {
-    private _name: string;
-    private _type: Type;
-    private _ingredients: string[]; // TODO: Do Ingredient[] instead
+    // private author: string;
+    // private description: string;
+    // private ingredients: string[]; // TODO: Do Ingredient[] instead
+    // private posted: string;
+    // private title: string;
+    // private type: Type;
     private _relevance?: number;
 
-    constructor(name: string, type: Type, ingredients: string[]) {
-        this._name = name;
-        this._type = type;
-        this._ingredients = ingredients;
+    // constructor(
+    //     author: string,
+    //     description: string,
+    //     ingredients: string[],
+    //     posted: string,
+    //     title: string,
+    //     type: Type
+    // ) {
+    //     this.author = author;
+    //     this.description = description;
+    //     this.ingredients = ingredients;
+    //     this.posted = posted;
+    //     this.title = title;
+    //     this.type = type;
+
+    //     this.relevance = 0;
+    // }
+    private _image: string;
+
+    constructor(
+        private readonly _author: string,
+        private readonly _description: string,
+        private readonly _ingredients: string[],
+        private readonly _posted: number,
+        private readonly _title: string,
+        private readonly _type: Type
+    ) {
         this._relevance = 0;
+        this._image = "";
     }
 
-    get name(): string {
-        return this._name;
+    get author(): string {
+        return this._author;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    get ingredients(): string[] {
+        return this._ingredients;
+    }
+
+    get posted(): string {
+        return `${this._posted}`;
+    }
+
+    get title(): string {
+        return this._title;
     }
 
     get type(): Type {
         return this._type;
     }
 
-    get ingredients(): string[] {
-        return this._ingredients;
+    get image(): string {
+        return this._image;
+    }
+
+    set image(image: string) {
+        this._image = image;
     }
 
     get relevance(): number {
@@ -46,6 +94,6 @@ export default class Meal implements IMeal {
     }
 
     public format(): void {
-        console.log(`Meal "${this.name}".`);
+        console.log(`Meal "${this._title}".`);
     }
 }

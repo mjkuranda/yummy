@@ -80,6 +80,9 @@ main > div + div {
     display: flex;
     align-items: center;
 }
+.category > ul > li > label {
+    cursor: pointer;
+}
 
 .category > ul > li > input {
     margin-right: 0.5em;

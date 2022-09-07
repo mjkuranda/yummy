@@ -56,7 +56,7 @@ class YummyRouter {
             ings: ings,
             types: types,
         };
-        const meals = (await this.db.get(query)) as Meal[] | null;
+        const meals = (await this.db.get(query)) as Meal[];
 
         const mealTypesValues = Object.values(Type);
         const mealTypes = Object.keys(Type).map((k: string, id: number) => {
@@ -103,7 +103,7 @@ class YummyRouter {
         }
 
         let pages = [];
-        for (let p = 1; p <= meals!.length / resultsPerPage + 1; p++) {
+        for (let p = 1; p <= (meals?.length ?? 0) / resultsPerPage + 1; p++) {
             pages.push(p);
         }
 
@@ -189,14 +189,24 @@ class YummyRouter {
     }
 
     private async mealsAddNew(req: Request, res: Response): Promise<void> {
-        const meal = new MealModel({
-            author: req.body.author ?? "",
-            description: req.body.description ?? "",
-            ingredients: req.body["ings"],
-            posted: new Date().getTime(),
-            title: req.body.title ?? "",
-            type: req.body.type ?? "",
-        });
+        const meal = new Meal(
+            req.body.author ?? "",
+            req.body.description ?? "",
+            req.body["ings"],
+            new Date().getTime(),
+            req.body.title ?? "",
+            req.body.type ?? ""
+        );
+
+        // {
+        //     author:
+        //     description:
+        //     ingredients:
+        //     posted:
+        //     title:
+        //     type:
+        //     image: undefined,
+        // };
 
         if (req.file) {
             meal.image = req.file.path.split("uploads\\")[1];
@@ -211,7 +221,9 @@ class YummyRouter {
         });
 
         try {
-            const newMeal = await meal.save();
+            // const newMeal = await meal.save();
+            const newMeal = await this.db.post(meal);
+
             res.status(201).render("meals-add-new", {
                 prefixPath: "../",
                 elements: elements.mealsAddNew,
