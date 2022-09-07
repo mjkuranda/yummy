@@ -1,5 +1,11 @@
 # Yummy Changelog
 
+## [2.11.3] - 2022-09-07
+
+### Fixed
+
+-   [mjkuranda]: Database interface.
+
 ## [2.11.2] - 2022-09-07
 
 ### Fixed

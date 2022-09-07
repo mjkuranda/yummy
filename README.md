@@ -7,6 +7,10 @@ Website that will help you to find somewhat to eat!
 Have you ever encountered a situation when you didn't know what to cook?
 Yummy will help you to make the best decision!
 
+## Deploying
+
+You can use this application at `https://yummy-pl.herokuapp.com/`!
+
 ## Using
 
 Being in the main page (locally is `http://localhost:3000/`) you can see panel, containg the three following buttons:
